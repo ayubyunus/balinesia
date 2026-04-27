@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Balinesia Journeys | Premium Bali Escapes</title>
+    <link rel="icon" type="image/jpeg" href="assets/logo.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .font-serif-custom { font-family: 'Playfair Display', serif; }
+        .hero-gradient { background: linear-gradient(rgba(10, 30, 20, 0.45), rgba(10, 30, 20, 0.9)); }
+        .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
+        details > summary { list-style: none; }
+        details > summary::-webkit-details-marker { display: none; }
+    </style>
+</head>
+<body class="bg-[#f8f9f6] text-slate-800">
+
+    <nav class="fixed w-full z-50 glass-nav shadow-md border-b border-[#e2e8f0]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <div class="flex items-center space-x-3">
+                    <img src="assets/logo.png" alt="Balinesia Logo" class="h-16 w-16 object-contain rounded-full shadow-sm border-2 border-emerald-800 overflow-hidden bg-white p-1">
+                    <span class="text-2xl font-black text-emerald-900 tracking-tight font-serif-custom">BALINESIA</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-8 font-semibold text-emerald-800 items-center">
+                    <a href="#" class="hover:text-amber-600 transition" data-i18n="nav_home">Home</a>
+                    <a href="#about" class="hover:text-amber-600 transition" data-i18n="nav_about">About Us</a>
+                    <a href="#packages" class="hover:text-amber-600 transition" data-i18n="nav_packages">Packages</a>
+                    
+                    <div class="relative group cursor-pointer">
+                        <div class="flex items-center gap-1 hover:text-amber-600 transition bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
+                            <i class="fas fa-globe"></i> <span id="current-lang">EN</span> <i class="fas fa-chevron-down text-xs ml-1"></i>
+                        </div>
+                        <div class="absolute right-0 mt-2 w-36 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top overflow-hidden z-50">
+                            <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇬🇧 English</button>
+                            <button onclick="changeLanguage('id')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇮🇩 Indonesia</button>
+                            <button onclick="changeLanguage('hi')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇮🇳 Hindi</button>
+                            <button onclick="changeLanguage('ru')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium">🇷🇺 Russian</button>
+                        </div>
+                    </div>
+
+                    <a href="https://wa.me/62881037997971" class="bg-emerald-800 text-amber-500 px-7 py-3 rounded-full font-bold hover:bg-emerald-900 transition shadow-lg shadow-emerald-900/30 font-serif-custom tracking-wider" target="_blank" data-i18n="btn_book">
+                        RESERVE NOW
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="relative h-[95vh] flex items-center justify-center text-white overflow-hidden">
+        <img src="assets/home.png" alt="Bali Paradise" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 hero-gradient"></div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mt-16">
+            <span class="border border-amber-500 text-amber-400 bg-emerald-900/50 backdrop-blur-sm px-5 py-2 rounded-full text-sm font-bold tracking-widest uppercase mb-6 inline-block" data-i18n="hero_badge">Your Island Gateway</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight font-serif-custom text-amber-50 drop-shadow-lg" data-i18n="hero_title">Unforgettable Bali <br>Private Escapes</h1>
+            <p class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-emerald-50 drop-shadow-md font-medium" data-i18n="hero_desc">Immerse yourself in Bali's breathtaking landscapes, ancient temples, and vibrant culture through our completely personalized day trips.</p>
+        </div>
+    </section>
+
+    <section id="about" class="py-24 max-w-7xl mx-auto px-4 bg-white rounded-[3rem] my-24 shadow-sm border border-slate-100">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+            <div class="w-full md:w-5/12 relative">
+                <div class="absolute inset-0 bg-amber-500 rounded-[2.5rem] transform translate-x-4 translate-y-4 -z-10 opacity-70"></div>
+                <img src="https://images.unsplash.com/photo-1537996194471-e657df975ab4?q=80&w=600" alt="Bali Experience" class="w-full h-[550px] object-cover object-center rounded-[2.5rem] shadow-xl border-4 border-white">
+            </div>
+            <div class="w-full md:w-7/12">
+                <span class="bg-emerald-100 text-emerald-700 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block">Balinesia Journeys</span>
+                <h2 class="text-4xl md:text-5xl font-bold text-emerald-950 mb-6 font-serif-custom" data-i18n="about_title">Travel in Style, Experience Bali</h2>
+                <p class="text-slate-600 leading-relaxed mb-6 text-lg text-justify" data-i18n="about_para1">
+                    Balinesia Journeys is a premium tour & travel service based in Bali, Indonesia. Offering personalized private tours and exclusive travel experiences.
+                </p>
+                <p class="text-slate-600 leading-relaxed text-lg text-justify" data-i18n="about_para2">
+                    With professional local drivers and tailored itineraries, we deliver comfort, authenticity, and unforgettable journeys across the Island of the Gods. 🌴 Private & Custom Tours 📍 Bali, Indonesia ✨
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-20 bg-[#f8f9f6]">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 mb-4 font-serif-custom" data-i18n="why_title">What Makes Us the <span class="text-amber-600 italic">Right Choice</span></h2>
+            <div class="w-20 h-1 bg-amber-500 mx-auto mb-16"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-6 shadow-md border border-emerald-100">
+                        <i class="fas fa-user-check"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-900" data-i18n="why_1_title">Trusted Local Guides</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="why_1_desc">Explore Bali with experienced, English-speaking local experts.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-6 shadow-md border border-emerald-100">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-900" data-i18n="why_2_title">Private & Flexible</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="why_2_desc">Customize your itinerary with private day trips and packages.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-6 shadow-md border border-emerald-100">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-900" data-i18n="why_3_title">Comfortable Transport</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="why_3_desc">Travel in air-conditioned vehicles with professional drivers.</p>
+                </div>
+                <div class="flex flex-col items-center">
+                    <div class="w-20 h-20 bg-white rounded-2xl flex items-center justify-center text-emerald-600 text-3xl mb-6 shadow-md border border-emerald-100">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-emerald-900" data-i18n="why_4_title">Hassle-Free Booking</h3>
+                    <p class="text-slate-500 text-sm leading-relaxed" data-i18n="why_4_desc">Easy online booking with transparent prices for all tours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="packages" class="py-24 max-w-7xl mx-auto px-4">
+        <div class="text-center mb-16">
+            <span class="bg-amber-100 text-amber-800 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block">Curated Journeys</span>
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 font-serif-custom text-emerald-950">Iconic Bali Experiences</h2>
+            <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/gwk.png" alt="GWK Cultural Park" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_south">South Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_gwk_title">Garuda Wisnu Kencana</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_gwk_desc">Marvel at the monumental statue of Lord Vishnu riding the mythical Garuda.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/lempuyangan.png" alt="Lempuyangan Gates of Heaven" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_east">East Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_lempuyangan_title">Gates of Heaven</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_lempuyangan_desc">Stand between the famous gates with majestic Mt. Agung as your backdrop.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/kintamani.png" alt="Kintamani Batur Volcano" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_highlands">Highlands</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_kintamani_title">Batur Volcano View</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_kintamani_desc">Enjoy breathtaking panoramic views of Lake Batur and the active volcano.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/kecak.png" alt="Kecak Fire Dance" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_south">South Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_kecak_title">Sunset Kecak Dance</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_kecak_desc">A magical cultural fire dance set against the Indian Ocean sunset.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/lot.png" alt="Tanah Lot Temple" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_west">West Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_lot_title">Tanah Lot Temple</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_lot_desc">A stunning sea temple perched on a rocky outcrop surrounded by the ocean waves.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/lovina.png" alt="Lovina Beach" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_north">North Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_lovina_title">Lovina Beach Dolphins</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_lovina_desc">Embark on a serene morning boat tour to watch wild dolphins play at sunrise.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/luwak coffee.png" alt="Luwak Coffee" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_experience">Experience</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_luwak_title">Luwak Coffee Plantation</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_luwak_desc">Discover the unique process of making one of the most exotic coffees in the world.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/melasti.png" alt="Melasti Beach" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_south">South Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_melasti_title">Melasti Beach</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_melasti_desc">A beautiful white sand beach tucked beneath towering limestone cliffs with crystal-clear waters.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/padang padang.png" alt="Padang Padang Beach" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_south">South Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_padang_title">Padang Padang Beach</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_padang_desc">A hidden gem famous for its clear turquoise waters, soft white sand, and dramatic limestone cliffs.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/pandawa.png" alt="Pandawa Beach" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_south">South Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_pandawa_title">Pandawa Beach</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_pandawa_desc">A beautiful coastal area known for its white sandy beach and towering limestone cliffs.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/tegallalang.png" alt="Tegallalang Rice Terrace" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_central">Central Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_tegallalang_title">Tegallalang Rice Terrace</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_tegallalang_desc">Explore the beautiful expanse of terraced rice paddies showcasing the traditional Balinese cooperative irrigation system.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/tirta empul.png" alt="Tirta Empul Temple" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_culture">Culture</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_tirtaempul_title">Tirta Empul Temple</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_tirtaempul_desc">Visit the sacred water temple known for its holy spring where locals partake in traditional purification rituals.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/ubud.png" alt="Ubud Palace" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_heritage">Heritage</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_ubud_title">Ubud Palace</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_ubud_desc">Discover the historic royal palace in the heart of Ubud, renowned for its traditional Balinese architecture.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/ulun danu.png" alt="Ulun Danu Temple" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_central">Central Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_ulundanu_title">Ulun Danu Temple</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_ulundanu_desc">A beautiful water temple situated on Lake Beratan, surrounded by misty mountains and serene waters.</p>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-3xl p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 group">
+                <div class="relative overflow-hidden h-72 rounded-2xl mb-6">
+                    <img src="assets/uluwatu.png" alt="Uluwatu Temple" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                    <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700" data-i18n="tag_south">South Bali</div>
+                </div>
+                <div class="px-2 pb-4">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_uluwatu_title">Uluwatu Temple</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6" data-i18n="pkg_uluwatu_desc">An ancient sea temple perched on the edge of a dramatic cliff overlooking the Indian Ocean.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="py-24 bg-[#eef1ed] rounded-[3rem] my-10 border border-emerald-100 max-w-7xl mx-auto">
+        <div class="max-w-5xl mx-auto px-4">
+            <div class="text-center mb-16">
+                <span class="bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Before You Book</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 font-serif-custom">Browse Our Most <span class="text-amber-600 italic">Asked Questions</span></h2>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+                <div class="space-y-4">
+                    <details class="group bg-white p-5 rounded-2xl border border-emerald-100 cursor-pointer transition-all shadow-sm">
+                        <summary class="flex justify-between items-center font-bold text-emerald-900">
+                            <span data-i18n="faq_q1">What types of Bali tours do you offer?</span>
+                            <span class="text-amber-500 text-xl transition duration-300 group-open:rotate-45">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed" data-i18n="faq_a1">We specialize in private day tours, culture combo packages, Nusa Penida excursions, reliable airport transfers, and fully customized travel itineraries across Bali.</p>
+                    </details>
+                    <details class="group bg-white p-5 rounded-2xl border border-emerald-100 cursor-pointer transition-all shadow-sm">
+                        <summary class="flex justify-between items-center font-bold text-emerald-900">
+                            <span data-i18n="faq_q2">Can I customize my tour itinerary?</span>
+                            <span class="text-amber-500 text-xl transition duration-300 group-open:rotate-45">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed" data-i18n="faq_a2">Yes, absolutely! All our tours are fully flexible. You are free to modify the schedule and choose the destinations that interest you the most.</p>
+                    </details>
+                </div>
+                <div class="space-y-4">
+                    <details class="group bg-white p-5 rounded-2xl border border-emerald-100 cursor-pointer transition-all shadow-sm">
+                        <summary class="flex justify-between items-center font-bold text-emerald-900">
+                            <span data-i18n="faq_q3">Are your tours suitable for families and kids?</span>
+                            <span class="text-amber-500 text-xl transition duration-300 group-open:rotate-45">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed" data-i18n="faq_a3">Yes, Bali is wonderful for families! We can provide baby car seats upon request and adjust the itinerary to be comfortable for all ages.</p>
+                    </details>
+                    <details class="group bg-white p-5 rounded-2xl border border-emerald-100 cursor-pointer transition-all shadow-sm">
+                        <summary class="flex justify-between items-center font-bold text-emerald-900">
+                            <span data-i18n="faq_q4">Are meals included in the tours?</span>
+                            <span class="text-amber-500 text-xl transition duration-300 group-open:rotate-45">+</span>
+                        </summary>
+                        <p class="mt-4 text-slate-500 text-sm leading-relaxed" data-i18n="faq_a4">Unless specified in all-inclusive combo packages, lunch is generally excluded, giving you the freedom to pick your preferred dining spots.</p>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-[#0a1e14] border-t border-emerald-950 pt-16 pb-8 text-emerald-100">
+        <div class="max-w-7xl mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+            <div>
+                <div class="flex items-center space-x-3 mb-6">
+                    <img src="assets/logo.png" alt="Balinesia Logo" class="h-16 w-16 object-contain rounded-full bg-white p-1 border border-emerald-800">
+                    <span class="text-2xl font-black text-amber-500 tracking-tight font-serif-custom">BALINESIA</span>
+                </div>
+                <div class="space-y-4 text-emerald-200/80 text-sm leading-relaxed max-w-sm">
+                    <p>lokasi<br>nanti di sini</p>
+                    <p class="flex items-center gap-3 text-amber-500"><i class="fab fa-whatsapp text-lg"></i> <span class="text-emerald-200/80">+62 881-0379-97971</span></p>
+                    <p class="flex items-center gap-3 text-amber-500"><i class="fas fa-envelope text-lg"></i> <span class="text-emerald-200/80">balinesiajourneys@gmail.com</span></p>
+                </div>
+                <div class="flex space-x-4 mt-8">
+                    <a href="https://instagram.com/balinesiajourneys" target="_blank" class="w-10 h-10 border border-emerald-800 text-amber-500 flex items-center justify-center hover:border-amber-500 hover:bg-amber-500 hover:text-[#0a1e14] transition rounded-full"><i class="fab fa-instagram text-lg"></i></a>
+                    <a href="https://tiktok.com/@balinesiajourneys" target="_blank" class="w-10 h-10 border border-emerald-800 text-amber-500 flex items-center justify-center hover:border-amber-500 hover:bg-amber-500 hover:text-[#0a1e14] transition rounded-full"><i class="fab fa-tiktok text-lg"></i></a>
+                </div>
+            </div>
+            <div class="md:pl-10">
+                <h4 class="font-bold text-xl text-amber-500 mb-6 font-serif-custom">Our Pages</h4>
+                <ul class="space-y-4 text-emerald-200/80">
+                    <li><a href="#about" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> About Us</a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Special Tour</a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Day Tour</a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Activity Combo Packages</a></li>
+                    <li><a href="#" class="hover:text-amber-400 transition flex items-center gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Airport Transfer Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/62881037997971" target="_blank" class="fixed bottom-8 right-8 bg-[#25D366] text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-xl hover:bg-green-600 hover:-translate-y-1 transition-all duration-300 z-50">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home", nav_about: "About Us", nav_packages: "Packages", btn_book: "RESERVE NOW",
+                hero_badge: "Your Island Gateway", hero_title: "Unforgettable Bali <br>Private Escapes", hero_desc: "Immerse yourself in Bali's breathtaking landscapes, ancient temples, and vibrant culture through our completely personalized day trips.",
+                
+                about_title: "Travel in Style, Experience Bali",
+                about_para1: "Balinesia Journeys is a premium tour & travel service based in Bali, Indonesia. Offering personalized private tours and exclusive travel experiences.",
+                about_para2: "With professional local drivers and tailored itineraries, we deliver comfort, authenticity, and unforgettable journeys across the Island of the Gods. 🌴 Private & Custom Tours 📍 Bali, Indonesia ✨",
+
+                why_title: "What Makes Us the <span class='text-amber-600 italic'>Right Choice</span>",
+                why_1_title: "Trusted Local Guides", why_1_desc: "Explore Bali with experienced, English-speaking local experts.",
+                why_2_title: "Private & Flexible", why_2_desc: "Customize your itinerary with private day trips and packages.",
+                why_3_title: "Comfortable Transport", why_3_desc: "Travel in air-conditioned vehicles with professional drivers.",
+                why_4_title: "Hassle-Free Booking", why_4_desc: "Easy online booking with transparent prices for all tours.",
+
+                tag_south: "South Bali", tag_east: "East Bali", tag_highlands: "Highlands", tag_west: "West Bali", tag_north: "North Bali", tag_experience: "Experience", tag_central: "Central Bali", tag_culture: "Culture", tag_heritage: "Heritage",
+                
+                pkg_gwk_title: "Garuda Wisnu Kencana", pkg_gwk_desc: "Marvel at the monumental statue of Lord Vishnu riding the mythical Garuda.",
+                pkg_lempuyangan_title: "Gates of Heaven", pkg_lempuyangan_desc: "Stand between the famous gates with majestic Mt. Agung as your backdrop.",
+                pkg_kintamani_title: "Batur Volcano View", pkg_kintamani_desc: "Enjoy breathtaking panoramic views of Lake Batur and the active volcano.",
+                pkg_kecak_title: "Sunset Kecak Dance", pkg_kecak_desc: "A magical cultural fire dance set against the Indian Ocean sunset.",
+                pkg_lot_title: "Tanah Lot Temple", pkg_lot_desc: "A stunning sea temple perched on a rocky outcrop surrounded by the ocean waves.",
+                pkg_lovina_title: "Lovina Beach Dolphins", pkg_lovina_desc: "Embark on a serene morning boat tour to watch wild dolphins play at sunrise.",
+                pkg_luwak_title: "Luwak Coffee Plantation", pkg_luwak_desc: "Discover the unique process of making one of the most exotic coffees in the world.",
+                pkg_melasti_title: "Melasti Beach", pkg_melasti_desc: "A beautiful white sand beach tucked beneath towering limestone cliffs with crystal-clear waters.",
+                pkg_padang_title: "Padang Padang Beach", pkg_padang_desc: "A hidden gem famous for its clear turquoise waters, soft white sand, and dramatic limestone cliffs.",
+                pkg_pandawa_title: "Pandawa Beach", pkg_pandawa_desc: "A beautiful coastal area known for its white sandy beach and towering limestone cliffs.",
+                pkg_tegallalang_title: "Tegallalang Rice Terrace", pkg_tegallalang_desc: "Explore the beautiful expanse of terraced rice paddies showcasing the traditional Balinese cooperative irrigation system.",
+                pkg_tirtaempul_title: "Tirta Empul Temple", pkg_tirtaempul_desc: "Visit the sacred water temple known for its holy spring where locals partake in traditional purification rituals.",
+                pkg_ubud_title: "Ubud Palace", pkg_ubud_desc: "Discover the historic royal palace in the heart of Ubud, renowned for its traditional Balinese architecture.",
+                pkg_ulundanu_title: "Ulun Danu Temple", pkg_ulundanu_desc: "A beautiful water temple situated on Lake Beratan, surrounded by misty mountains and serene waters.",
+                pkg_uluwatu_title: "Uluwatu Temple", pkg_uluwatu_desc: "An ancient sea temple perched on the edge of a dramatic cliff overlooking the Indian Ocean.",
+                
+                faq_q1: "What types of Bali tours do you offer?", faq_a1: "We specialize in private day tours, culture combo packages, Nusa Penida excursions, reliable airport transfers, and fully customized travel itineraries across Bali.",
+                faq_q2: "Can I customize my tour itinerary?", faq_a2: "Yes, absolutely! All our tours are fully flexible. You are free to modify the schedule and choose the destinations that interest you the most.",
+                faq_q3: "Are your tours suitable for families and kids?", faq_a3: "Yes, Bali is wonderful for families! We can provide baby car seats upon request and adjust the itinerary to be comfortable for all ages.",
+                faq_q4: "Are meals included in the tours?", faq_a4: "Unless specified in all-inclusive combo packages, lunch is generally excluded, giving you the freedom to pick your preferred dining spots."
+            },
+            id: {
+                nav_home: "Beranda", nav_about: "Tentang Kami", nav_packages: "Paket Tour", btn_book: "PESAN SEKARANG",
+                hero_badge: "Gerbang Liburan Anda", hero_title: "Liburan Privat <br>Bali Tak Terlupakan", hero_desc: "Jelajahi keindahan alam, pura bersejarah, dan budaya Bali melalui layanan perjalanan harian yang disesuaikan khusus untuk Anda.",
+                
+                about_title: "Liburan Berkelas, Nikmati Bali Seutuhnya",
+                about_para1: "Balinesia Journeys adalah layanan tur & perjalanan premium yang berbasis di Bali, Indonesia. Kami menawarkan tur pribadi yang dipersonalisasi dan pengalaman liburan yang eksklusif.",
+                about_para2: "Dengan pengemudi lokal profesional dan rencana perjalanan yang disesuaikan, kami menghadirkan kenyamanan, keaslian, dan perjalanan tak terlupakan di seluruh Pulau Dewata. 🌴 Tur Privat & Kustom 📍 Bali, Indonesia ✨",
+
+                why_title: "Mengapa Memilih <span class='text-amber-600 italic'>Layanan Kami</span>",
+                why_1_title: "Pemandu Lokal Terpercaya", why_1_desc: "Jelajahi Bali bersama ahlinya yang berpengalaman dan ramah.",
+                why_2_title: "Privat & Fleksibel", why_2_desc: "Sesuaikan rencana perjalanan Anda dengan paket harian privat.",
+                why_3_title: "Transportasi Nyaman", why_3_desc: "Bepergian di kendaraan ber-AC dengan pengemudi profesional.",
+                why_4_title: "Pemesanan Mudah", why_4_desc: "Pemesanan online praktis dengan harga transparan untuk semua tur.",
+
+                tag_south: "Bali Selatan", tag_east: "Bali Timur", tag_highlands: "Dataran Tinggi", tag_west: "Bali Barat", tag_north: "Bali Utara", tag_experience: "Aktivitas", tag_central: "Bali Tengah", tag_culture: "Budaya", tag_heritage: "Sejarah",
+                
+                pkg_gwk_title: "Garuda Wisnu Kencana", pkg_gwk_desc: "Kagumi patung monumental Dewa Wisnu yang mengendarai Garuda.",
+                pkg_lempuyangan_title: "Gerbang Surga Lempuyangan", pkg_lempuyangan_desc: "Berdiri di antara gerbang ikonik dengan latar belakang Gunung Agung yang megah.",
+                pkg_kintamani_title: "Pemandangan Gunung Batur", pkg_kintamani_desc: "Nikmati panorama spektakuler Danau Batur dan gunung berapi aktif.",
+                pkg_kecak_title: "Tari Kecak Uluwatu", pkg_kecak_desc: "Pertunjukan tari api magis dengan latar belakang matahari terbenam.",
+                pkg_lot_title: "Pura Tanah Lot", pkg_lot_desc: "Pura laut memukau yang bertengger di atas tebing batu dikelilingi ombak samudra.",
+                pkg_lovina_title: "Lumba-Lumba Pantai Lovina", pkg_lovina_desc: "Tur perahu pagi yang tenang untuk melihat lumba-lumba liar bermain saat fajar.",
+                pkg_luwak_title: "Perkebunan Kopi Luwak", pkg_luwak_desc: "Temukan proses unik pembuatan salah satu kopi paling eksotis di dunia.",
+                pkg_melasti_title: "Pantai Melasti", pkg_melasti_desc: "Pantai berpasir putih indah yang tersembunyi di bawah tebing kapur menjulang dengan air sebening kristal.",
+                pkg_padang_title: "Pantai Padang Padang", pkg_padang_desc: "Permata tersembunyi yang terkenal dengan air pirusnya yang jernih, pasir putih lembut, dan tebing kapur dramatis.",
+                pkg_pandawa_title: "Pantai Pandawa", pkg_pandawa_desc: "Kawasan pesisir indah yang terkenal dengan pantai berpasir putih dan tebing kapurnya yang menjulang tinggi.",
+                pkg_tegallalang_title: "Sawah Terasering Tegallalang", pkg_tegallalang_desc: "Jelajahi hamparan sawah bertingkat yang indah yang menampilkan sistem irigasi subak tradisional Bali.",
+                pkg_tirtaempul_title: "Pura Tirta Empul", pkg_tirtaempul_desc: "Kunjungi pura air suci yang terkenal dengan mata airnya tempat umat Hindu Bali melakukan ritual penyucian diri.",
+                pkg_ubud_title: "Puri Saren Agung Ubud", pkg_ubud_desc: "Temukan istana kerajaan bersejarah di jantung kota Ubud, yang terkenal dengan arsitektur tradisional Bali yang menawan.",
+                pkg_ulundanu_title: "Pura Ulun Danu Beratan", pkg_ulundanu_desc: "Pura air indah yang terletak di Danau Beratan, dikelilingi oleh pegunungan berkabut dan perairan yang tenang.",
+                pkg_uluwatu_title: "Pura Uluwatu", pkg_uluwatu_desc: "Pura laut kuno yang bertengger di tepi tebing dramatis menghadap Samudra Hindia.",
+                
+                faq_q1: "Jenis tur apa yang Anda tawarkan?", faq_a1: "Kami berspesialisasi dalam tur harian pribadi, paket kombo budaya, ekskursi Nusa Penida, transfer bandara yang andal, dan rencana perjalanan yang disesuaikan.",
+                faq_q2: "Bisakah saya mengubah rencana perjalanan?", faq_a2: "Ya, tentu saja! Semua tur kami sepenuhnya fleksibel. Anda bebas mengubah jadwal dan memilih destinasi yang paling Anda minati.",
+                faq_q3: "Apakah tur ini cocok untuk keluarga dan anak-anak?", faq_a3: "Ya, Bali sangat ramah keluarga! Kami dapat menyediakan kursi mobil bayi berdasarkan permintaan dan menyesuaikan jadwal agar nyaman untuk semua usia.",
+                faq_q4: "Apakah makan siang sudah termasuk?", faq_a4: "Kecuali ditentukan dalam paket tertentu, makan siang umumnya tidak termasuk, memberikan Anda kebebasan untuk memilih tempat makan pilihan Anda."
+            },
+            hi: {
+                nav_home: "मुख्य पृष्ठ", nav_about: "हमारे बारे में", nav_packages: "पैकेज", btn_book: "अभी बुक करें",
+                hero_badge: "आपका द्वीप प्रवेश द्वार", hero_title: "अविस्मरणीय बाली <br>निजी यात्रा", hero_desc: "हमारे पूरी तरह से व्यक्तिगत दिन की यात्राओं के माध्यम से बाली के लुभावने परिदृश्य, प्राचीन मंदिरों और जीवंत संस्कृति में खुद को विसर्जित करें।",
+                
+                about_title: "स्टाइल में यात्रा करें, बाली का अनुभव लें",
+                about_para1: "बालिनेशिया जर्नीज़ बाली, इंडोनेशिया में स्थित एक प्रीमियम टूर और ट्रैवल सेवा है। जो व्यक्तिगत निजी पर्यटन और विशेष यात्रा अनुभव प्रदान करती है।",
+                about_para2: "पेशेवर स्थानीय ड्राइवरों और अनुकूलित यात्रा कार्यक्रमों के साथ, हम देवताओं के द्वीप में आराम, प्रामाणिकता और अविस्मरणीय यात्राएं प्रदान करते हैं। 🌴 निजी और कस्टम पर्यटन 📍 बाली, इंडोनेशिया ✨",
+
+                why_title: "हमें क्या <span class='text-amber-600 italic'>सही विकल्प</span> बनाता है",
+                why_1_title: "विश्वसनीय स्थानीय गाइड", why_1_desc: "अनुभवी, अंग्रेजी बोलने वाले स्थानीय विशेषज्ञों के साथ बाली का अन्वेषण करें।",
+                why_2_title: "निजी और लचीला", why_2_desc: "निजी दिन यात्राओं और पैकेजों के साथ अपने यात्रा कार्यक्रम को अनुकूलित करें।",
+                why_3_title: "आरामदायक परिवहन", why_3_desc: "पेशेवर ड्राइवरों के साथ वातानुकूलित वाहनों में यात्रा करें।",
+                why_4_title: "परेशानी मुक्त बुकिंग", why_4_desc: "सभी पर्यटन के लिए पारदर्शी कीमतों के साथ आसान ऑनलाइन बुकिंग।",
+
+                tag_south: "दक्षिण बाली", tag_east: "पूर्व बाली", tag_highlands: "पहाड़ी क्षेत्र", tag_west: "पश्चिम बाली", tag_north: "उत्तर बाली", tag_experience: "अनुभव", tag_central: "मध्य बाली", tag_culture: "संस्कृति", tag_heritage: "विरासत",
+                
+                pkg_gwk_title: "गरुड़ विष्णुकंचन", pkg_gwk_desc: "पौराणिक गरुड़ पर सवार भगवान विष्णु की स्मारकीय मूर्ति पर अचंभित हों।",
+                pkg_lempuyangan_title: "स्वर्ग का द्वार", pkg_lempuyangan_desc: "शानदार माउंट आगुंग की पृष्ठभूमि के साथ प्रसिद्ध फाटकों के बीच खड़े हों।",
+                pkg_kintamani_title: "बतुर ज्वालामुखी दृश्य", pkg_kintamani_desc: "झील बतुर और सक्रिय ज्वालामुखी के लुभावने मनोरम दृश्यों का आनंद लें।",
+                pkg_kecak_title: "सूर्यास्त केचक नृत्य", pkg_kecak_desc: "हिंद महासागर के सूर्यास्त की पृष्ठभूमि में एक जादुई सांस्कृतिक अग्नि नृत्य।",
+                pkg_lot_title: "तनाह लोत मंदिर", pkg_lot_desc: "समुद्र की लहरों से घिरे एक चट्टानी उभार पर स्थित एक आश्चर्यजनक समुद्री मंदिर।",
+                pkg_lovina_title: "लोविना बीच डॉल्फ़िन", pkg_lovina_desc: "सूर्योदय के समय जंगली डॉल्फ़िन को खेलते हुए देखने के लिए एक शांत सुबह की नाव यात्रा पर निकलें।",
+                pkg_luwak_title: "लूवाक कॉफी बागान", pkg_luwak_desc: "दुनिया की सबसे विदेशी कॉफी में से एक बनाने की अनूठी प्रक्रिया की खोज करें।",
+                pkg_melasti_title: "मेलास्ती बीच", pkg_melasti_desc: "क्रिस्टल-क्लियर पानी के साथ विशाल चूना पत्थर की चट्टानों के नीचे छिपा एक सुंदर सफेद रेत वाला समुद्र तट।",
+                pkg_padang_title: "पादांग पादांग बीच", pkg_padang_desc: "अपने साफ फिरोजा पानी, मुलायम सफेद रेत और नाटकीय चूना पत्थर की चट्टानों के लिए प्रसिद्ध एक छिपा हुआ रत्न।",
+                pkg_pandawa_title: "पांडावा बीच", pkg_pandawa_desc: "अपने सफेद रेतीले समुद्र तट और विशाल चूना पत्थर की चट्टानों के लिए जाना जाने वाला एक सुंदर तटीय क्षेत्र।",
+                pkg_tegallalang_title: "टेगलालांग राइस टेरेस", pkg_tegallalang_desc: "पारंपरिक बालिनी सिंचाई प्रणाली को प्रदर्शित करने वाले सीढ़ीदार धान के खेतों के सुंदर विस्तार का अन्वेषण करें।",
+                pkg_tirtaempul_title: "तीर्थ एम्पुल मंदिर", pkg_tirtaempul_desc: "अपने पवित्र वसंत के लिए जाने जाने वाले पवित्र जल मंदिर के दर्शन करें जहां स्थानीय लोग पारंपरिक शुद्धिकरण अनुष्ठानों में भाग लेते हैं।",
+                pkg_ubud_title: "उबुद पैलेस", pkg_ubud_desc: "उबुद के केंद्र में ऐतिहासिक शाही महल की खोज करें, जो अपनी पारंपरिक बालिनी वास्तुकला के लिए प्रसिद्ध है।",
+                pkg_ulundanu_title: "उलुन दानू मंदिर", pkg_ulundanu_desc: "बेराटन झील पर स्थित एक सुंदर जल मंदिर, जो धुंध भरे पहाड़ों और शांत पानी से घिरा हुआ है।",
+                pkg_uluwatu_title: "उलुवातु मंदिर", pkg_uluwatu_desc: "हिंद महासागर की ओर देखने वाली एक नाटकीय चट्टान के किनारे पर स्थित एक प्राचीन समुद्री मंदिर।",
+                
+                faq_q1: "आप किस प्रकार के पर्यटन की पेशकश करते हैं?", faq_a1: "हम निजी दिन पर्यटन, कॉम्बो पैकेज, हवाई अड्डा हस्तांतरण और अनुकूलित यात्रा कार्यक्रम में विशेषज्ञ हैं।",
+                faq_q2: "क्या मैं अपने दौरे को अनुकूलित कर सकता हूँ?", faq_a2: "हाँ! हमारे सभी पर्यटन लचीले हैं। आप गंतव्यों को चुनने और शेड्यूल को संशोधित करने के लिए स्वतंत्र हैं।",
+                faq_q3: "क्या आपके पर्यटन परिवारों के लिए उपयुक्त हैं?", faq_a3: "हाँ, हम अनुरोध पर बेबी कार सीट प्रदान कर सकते हैं और यात्रा कार्यक्रम को आरामदायक होने के लिए समायोजित कर सकते हैं।",
+                faq_q4: "क्या भोजन शामिल है?", faq_a4: "आम तौर पर भोजन शामिल नहीं होता है, जिससे आपको अपने पसंदीदा भोजन स्थानों को चुनने की स्वतंत्रता मिलती है।"
+            },
+            ru: {
+                nav_home: "Главная", nav_about: "О нас", nav_packages: "Пакеты", btn_book: "ЗАБРОНИРОВАТЬ",
+                hero_badge: "Ваши врата на остров", hero_title: "Незабываемый Бали <br>Частные туры", hero_desc: "Погрузитесь в захватывающие пейзажи Бали, древние храмы и яркую культуру с нашими полностью индивидуальными однодневными поездками.",
+                
+                about_title: "Путешествуйте со стилем, откройте для себя Бали",
+                about_para1: "Balinesia Journeys — это туристическое агентство премиум-класса на Бали, Индонезия. Мы предлагаем индивидуальные частные туры и эксклюзивные путешествия.",
+                about_para2: "С профессиональными местными водителями и индивидуальными маршрутами мы обеспечиваем комфорт, аутентичность и незабываемые путешествия по Острову Богов. 🌴 Частные туры 📍 Бали, Индонезия ✨",
+
+                why_title: "Почему <span class='text-amber-600 italic'>выбирают нас</span>",
+                why_1_title: "Надежные гиды", why_1_desc: "Исследуйте Бали с опытными местными экспертами.",
+                why_2_title: "Индивидуально и гибко", why_2_desc: "Настройте свой маршрут с помощью частных туров и пакетов.",
+                why_3_title: "Комфортный транспорт", why_3_desc: "Путешествуйте в автомобилях с кондиционером и профессиональными водителями.",
+                why_4_title: "Простое бронирование", why_4_desc: "Легкое онлайн-бронирование с прозрачными ценами.",
+
+                tag_south: "Южный Бали", tag_east: "Восточный Бали", tag_highlands: "Кинтамани", tag_west: "Западный Бали", tag_north: "Северный Бали", tag_experience: "Опыт", tag_central: "Центральный Бали", tag_culture: "Культура", tag_heritage: "Наследие",
+                
+                pkg_gwk_title: "Гаруда Вишну Кенчана", pkg_gwk_desc: "Полюбуйтесь монументальной статуей бога Вишну, верхом на мифической Гаруде.",
+                pkg_lempuyangan_title: "Врата Небес", pkg_lempuyangan_desc: "Встаньте между знаменитыми вратами на фоне величественной горы Агунг.",
+                pkg_kintamani_title: "Вулкан Батур", pkg_kintamani_desc: "Насладитесь захватывающими панорамными видами на озеро Батур и активный вулкан.",
+                pkg_kecak_title: "Танец Кечак", pkg_kecak_desc: "Магический балийский танец огня на фоне заката над Индийским океаном.",
+                pkg_lot_title: "Храм Танах Лот", pkg_lot_desc: "Потрясающий морской храм, расположенный на скалистом выступе, окруженном волнами.",
+                pkg_lovina_title: "Дельфины Ловины", pkg_lovina_desc: "Отправьтесь на утреннюю лодочную прогулку, чтобы понаблюдать за играющими дельфинами.",
+                pkg_luwak_title: "Плантация кофе Лювак", pkg_luwak_desc: "Откройте для себя уникальный процесс производства одного из самых экзотических видов кофе.",
+                pkg_melasti_title: "Пляж Меласти", pkg_melasti_desc: "Прекрасный пляж с белым песком, спрятанный под высокими известняковыми скалами с кристально чистой водой.",
+                pkg_padang_title: "Пляж Паданг Паданг", pkg_padang_desc: "Скрытая жемчужина, известная своими прозрачными бирюзовыми водами, мягким белым песком и скалами.",
+                pkg_pandawa_title: "Пляж Пандава", pkg_pandawa_desc: "Красивая прибрежная зона, известная своим белым песчаным пляжем и высокими известняковыми скалами.",
+                pkg_tegallalang_title: "Рисовые террасы Тегаллаланг", pkg_tegallalang_desc: "Исследуйте прекрасные террасные рисовые поля, демонстрирующие традиционную балийскую систему орошения.",
+                pkg_tirtaempul_title: "Храм Тирта Эмпул", pkg_tirtaempul_desc: "Посетите священный водный храм, известный своим святым источником, где местные жители проводят ритуалы очищения.",
+                pkg_ubud_title: "Дворец Убуда", pkg_ubud_desc: "Откройте для себя исторический королевский дворец в самом сердце Убуда, известный своей традиционной балийской архитектурой.",
+                pkg_ulundanu_title: "Храм Улун Дану", pkg_ulundanu_desc: "Красивый водный храм, расположенный на озере Бератан, в окружении туманных гор и спокойных вод.",
+                pkg_uluwatu_title: "Храм Улувату", pkg_uluwatu_desc: "Древний морской храм, расположенный на краю живописной скалы с видом на Индийский океан.",
+                
+                faq_q1: "Какие туры вы предлагаете?", faq_a1: "Мы специализируемся на частных турах, комбо-пакетах, трансферах из аэропорта и индивидуальных маршрутах.",
+                faq_q2: "Могу ли я изменить маршрут?", faq_a2: "Да, абсолютно! Все наши туры гибки. Вы можете изменять график и выбирать направления.",
+                faq_q3: "Подходят ли туры для семей?", faq_a3: "Да, мы можем предоставить детские автокресла и адаптировать маршрут для всех возрастов.",
+                faq_q4: "Включен ли обед?", faq_a4: "Обычно обед не включен, что дает вам свободу выбора предпочитаемых мест для еды."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById('current-lang').innerText = lang.toUpperCase();
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if(translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key]; 
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
