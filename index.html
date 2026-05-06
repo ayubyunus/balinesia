@@ -9,15 +9,26 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap');
-        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; transition: all 0.3s ease; }
         .font-serif-custom { font-family: 'Playfair Display', serif; }
         .hero-gradient { background: linear-gradient(rgba(10, 30, 20, 0.45), rgba(10, 30, 20, 0.9)); }
         .glass-nav { background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        /* Dukungan RTL (Right-to-Left) untuk Bahasa Arab */
+        [dir="rtl"] .flex-row { flex-direction: row-reverse; }
+        [dir="rtl"] .space-x-3 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+        [dir="rtl"] .space-x-4 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+        [dir="rtl"] .space-x-8 > :not([hidden]) ~ :not([hidden]) { --tw-space-x-reverse: 1; }
+        [dir="rtl"] .md\:pl-10 { padding-left: 0; padding-right: 2.5rem; }
+        [dir="rtl"] .text-left { text-align: right; }
+        [dir="rtl"] .md\:text-left { text-align: right; }
+        [dir="rtl"] .right-8 { right: auto; left: 2rem; }
+        [dir="rtl"] .right-6 { right: auto; left: 1.5rem; }
     </style>
 </head>
-<body class="bg-[#f8f9f6] text-slate-800">
+<body class="bg-[#f8f9f6] text-slate-800" dir="ltr">
 
     <nav class="fixed w-full z-50 glass-nav shadow-md border-b border-[#e2e8f0]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,17 +41,22 @@
                 <div class="hidden md:flex space-x-8 font-semibold text-emerald-800 items-center">
                     <a href="#" class="hover:text-amber-600 transition" data-i18n="nav_home">Home</a>
                     <a href="#about" class="hover:text-amber-600 transition" data-i18n="nav_about">About Us</a>
+                    <a href="#services" class="hover:text-amber-600 transition" data-i18n="nav_services">Services</a>
                     <a href="#packages" class="hover:text-amber-600 transition" data-i18n="nav_packages">Packages</a>
                     
                     <div class="relative group cursor-pointer">
                         <div class="flex items-center gap-1 hover:text-amber-600 transition bg-emerald-50 px-3 py-1.5 rounded-lg border border-emerald-100">
                             <i class="fas fa-globe"></i> <span id="current-lang">EN</span> <i class="fas fa-chevron-down text-xs ml-1"></i>
                         </div>
-                        <div class="absolute right-0 mt-2 w-36 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top overflow-hidden z-50">
+                        <div class="absolute right-0 mt-2 w-40 bg-white rounded-xl shadow-xl border border-slate-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top overflow-hidden z-50">
                             <button onclick="changeLanguage('en')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇬🇧 English</button>
                             <button onclick="changeLanguage('id')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇮🇩 Indonesia</button>
-                            <button onclick="changeLanguage('hi')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇮🇳 Hindi</button>
-                            <button onclick="changeLanguage('ru')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium">🇷🇺 Russian</button>
+                            <button onclick="changeLanguage('zh')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇨🇳 中文 (Chinese)</button>
+                            <button onclick="changeLanguage('ja')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇯🇵 日本語 (Japanese)</button>
+                            <button onclick="changeLanguage('th')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇹🇭 ไทย (Thai)</button>
+                            <button onclick="changeLanguage('hi')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇮🇳 हिन्दी (Hindi)</button>
+                            <button onclick="changeLanguage('ar')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium border-b border-slate-50">🇸🇦 العربية (Arabic)</button>
+                            <button onclick="changeLanguage('ru')" class="w-full text-left px-4 py-3 text-sm text-slate-700 hover:bg-emerald-50 hover:text-emerald-700 font-medium">🇷🇺 Русский (Russian)</button>
                         </div>
                     </div>
 
@@ -61,13 +77,18 @@
             <div class="flex flex-col px-6 pt-4 pb-2 space-y-4">
                 <a href="#" class="block font-semibold text-emerald-900 text-lg hover:text-amber-600" data-i18n="nav_home">Home</a>
                 <a href="#about" class="block font-semibold text-emerald-900 text-lg hover:text-amber-600" data-i18n="nav_about">About Us</a>
+                <a href="#services" class="block font-semibold text-emerald-900 text-lg hover:text-amber-600" data-i18n="nav_services">Services</a>
                 <a href="#packages" class="block font-semibold text-emerald-900 text-lg hover:text-amber-600" data-i18n="nav_packages">Packages</a>
                 
                 <div class="border-t border-emerald-50 pt-4 mt-2">
-                    <p class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider">Select Language</p>
+                    <p class="text-xs font-bold text-slate-400 mb-3 uppercase tracking-wider" data-i18n="select_lang">Select Language</p>
                     <div class="grid grid-cols-4 gap-2">
                         <button onclick="changeLanguage('en')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">EN</button>
                         <button onclick="changeLanguage('id')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">ID</button>
+                        <button onclick="changeLanguage('zh')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">ZH</button>
+                        <button onclick="changeLanguage('ja')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">JA</button>
+                        <button onclick="changeLanguage('th')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">TH</button>
+                        <button onclick="changeLanguage('ar')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">AR</button>
                         <button onclick="changeLanguage('hi')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">HI</button>
                         <button onclick="changeLanguage('ru')" class="px-2 py-2 bg-emerald-50 rounded-lg text-emerald-900 font-bold border border-emerald-100 hover:bg-emerald-100">RU</button>
                     </div>
@@ -105,6 +126,53 @@
                 <p class="text-slate-600 leading-relaxed text-base md:text-lg text-justify" data-i18n="about_para2">
                     With professional local drivers and tailored itineraries, we deliver comfort, authenticity, and unforgettable journeys across the Island of the Gods. 🌴 Private & Custom Tours 📍 Bali, Indonesia ✨
                 </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-16 md:py-20 bg-white border-t border-emerald-50">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="bg-amber-100 text-amber-800 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block" data-i18n="srv_badge">Our Services</span>
+            <h2 class="text-3xl md:text-5xl font-bold text-emerald-950 mb-4 font-serif-custom" data-i18n="srv_title">What We Offer</h2>
+            <div class="w-20 h-1 bg-amber-500 mx-auto mb-16"></div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 text-left">
+                <div class="p-6 bg-[#f8f9f6] rounded-3xl border border-emerald-100 hover:shadow-lg transition-all flex items-start gap-5">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <div><h4 class="font-bold text-lg text-emerald-950 pt-3" data-i18n="srv_1">Private Tour Bali</h4></div>
+                </div>
+                <div class="p-6 bg-[#f8f9f6] rounded-3xl border border-emerald-100 hover:shadow-lg transition-all flex items-start gap-5">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">
+                        <i class="fas fa-plane-arrival"></i>
+                    </div>
+                    <div><h4 class="font-bold text-lg text-emerald-950 pt-3" data-i18n="srv_2">Airport Pick-up & Drop-off</h4></div>
+                </div>
+                <div class="p-6 bg-[#f8f9f6] rounded-3xl border border-emerald-100 hover:shadow-lg transition-all flex items-start gap-5">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">
+                        <i class="fas fa-hotel"></i>
+                    </div>
+                    <div><h4 class="font-bold text-lg text-emerald-950 pt-3" data-i18n="srv_3">Best Hotel & Villa Booking</h4></div>
+                </div>
+                <div class="p-6 bg-[#f8f9f6] rounded-3xl border border-emerald-100 hover:shadow-lg transition-all flex items-start gap-5">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <div><h4 class="font-bold text-lg text-emerald-950 pt-1 leading-snug" data-i18n="srv_4">Nusa Penida & Gili Fastboat Tickets</h4></div>
+                </div>
+                <div class="p-6 bg-[#f8f9f6] rounded-3xl border border-emerald-100 hover:shadow-lg transition-all flex items-start gap-5">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <div><h4 class="font-bold text-lg text-emerald-950 pt-3" data-i18n="srv_5">Bali Tourist Attraction Tickets</h4></div>
+                </div>
+                <div class="p-6 bg-[#f8f9f6] rounded-3xl border border-emerald-100 hover:shadow-lg transition-all flex items-start gap-5">
+                    <div class="w-14 h-14 bg-emerald-100 text-emerald-700 rounded-2xl flex items-center justify-center flex-shrink-0 text-2xl">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                    <div><h4 class="font-bold text-lg text-emerald-950 pt-1 leading-snug" data-i18n="srv_6">Bali to Ijen, Bromo & Lombok Tours</h4></div>
+                </div>
             </div>
         </div>
     </section>
@@ -150,7 +218,7 @@
     <section id="packages" class="py-16 md:py-24 max-w-7xl mx-auto px-4">
         <div class="text-center mb-12 md:mb-16">
             <span class="bg-amber-100 text-amber-800 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block">Curated Journeys</span>
-            <h2 class="text-3xl md:text-5xl font-bold mb-4 font-serif-custom text-emerald-950">Iconic Bali Experiences</h2>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 font-serif-custom text-emerald-950" data-i18n="pkg_header">Iconic Bali Experiences</h2>
             <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
         </div>
         
@@ -323,15 +391,99 @@
         </div>
     </section>
 
+    <section id="exclusive-packages" class="py-16 md:py-24 max-w-7xl mx-auto px-4 border-t border-emerald-50">
+        <div class="text-center mb-12 md:mb-16">
+            <span class="bg-amber-100 text-amber-800 px-4 py-1 rounded-full text-xs font-black uppercase tracking-widest mb-4 inline-block" data-i18n="exc_badge">Premium Stays</span>
+            <h2 class="text-3xl md:text-5xl font-bold mb-4 font-serif-custom text-emerald-950" data-i18n="exc_title">Exclusive & Honeymoon Packages</h2>
+            <div class="w-24 h-1 bg-amber-500 mx-auto"></div>
+        </div>
+        
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+            <div class="bg-white rounded-[2rem] p-4 shadow-xl border border-emerald-100 flex flex-col group hover:shadow-emerald-200 transition duration-500">
+                <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-100 border border-slate-200">
+                    <img src="assets/honeymoon.png" alt="Honeymoon Package" class="w-full h-auto object-contain group-hover:scale-105 transition duration-700">
+                    <div class="absolute top-4 left-4 bg-amber-500 text-emerald-950 px-3 py-1 rounded-lg text-xs font-black shadow-sm uppercase" data-i18n="tag_romantic">Romantic</div>
+                </div>
+                <div class="px-2 pb-4 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_honey_title">Romantic Honeymoon</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_honey_desc">Celebrate your love with our romantic getaway package. Includes private villa, romantic dinner, and couples spa.</p>
+                    <a href="https://wa.me/62881037997971" target="_blank" class="w-full text-center border-2 border-emerald-800 text-emerald-800 px-5 py-3 rounded-full font-bold hover:bg-emerald-800 hover:text-amber-500 transition text-sm uppercase tracking-wider" data-i18n="btn_detail">View Details</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-[2rem] p-4 shadow-xl border border-emerald-100 flex flex-col group hover:shadow-emerald-200 transition duration-500">
+                <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-100 border border-slate-200">
+                    <img src="assets/4days.jpg" alt="4 Days Tour" class="w-full h-auto object-contain group-hover:scale-105 transition duration-700">
+                    <div class="absolute top-4 left-4 bg-emerald-800 text-amber-500 px-3 py-1 rounded-lg text-xs font-black shadow-sm uppercase" data-i18n="tag_multiday">Multi-Day</div>
+                </div>
+                <div class="px-2 pb-4 flex flex-col flex-grow">
+                    <h3 class="text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="pkg_4days_title">4 Days 3 Nights Tour</h3>
+                    <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow" data-i18n="pkg_4days_desc">The ultimate Bali experience. Explore the best of the island from south beaches to central highlands in 4 days.</p>
+                    <a href="https://wa.me/62881037997971" target="_blank" class="w-full text-center border-2 border-emerald-800 text-emerald-800 px-5 py-3 rounded-full font-bold hover:bg-emerald-800 hover:text-amber-500 transition text-sm uppercase tracking-wider" data-i18n="btn_detail">View Details</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="rentals-activities" class="py-16 md:py-24 bg-[#eef1ed] border-y border-emerald-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12 md:mb-16">
+                <span class="bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block" data-i18n="rent_badge">Transport & Fun</span>
+                <h2 class="text-3xl md:text-5xl font-bold text-emerald-950 font-serif-custom" data-i18n="rent_title">Car Rental & Watersport</h2>
+                <div class="w-20 h-1 bg-emerald-500 mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
+                
+                <div class="bg-white rounded-[2rem] p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 flex flex-col group">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-100 border border-slate-200">
+                        <img src="assets/without.jpg" alt="Self Drive Rental" class="w-full h-auto object-contain group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700">Transport</div>
+                    </div>
+                    <div class="px-2 pb-4 flex flex-col flex-grow">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="rent_self_title">Car Rental (Self Drive)</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="rent_self_desc">Explore Bali at your own pace with our well-maintained cars. Perfect for independent travelers.</p>
+                        <a href="https://wa.me/62881037997971" target="_blank" class="w-full text-center bg-emerald-800 text-amber-500 px-6 py-3 rounded-full font-bold hover:bg-emerald-900 transition shadow-lg text-sm uppercase tracking-wider" data-i18n="btn_pricelist">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2rem] p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 flex flex-col group">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-100 border border-slate-200">
+                        <img src="assets/with.jpg" alt="Rental With Driver" class="w-full h-auto object-contain group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-4 right-4 bg-emerald-900/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-amber-500 shadow-sm uppercase border border-emerald-700">Transport</div>
+                    </div>
+                    <div class="px-2 pb-4 flex flex-col flex-grow">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="rent_driver_title">Car Rental (With Driver)</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="rent_driver_desc">Sit back and relax. Let our professional English-speaking drivers navigate the Bali traffic for you.</p>
+                        <a href="https://wa.me/62881037997971" target="_blank" class="w-full text-center bg-emerald-800 text-amber-500 px-6 py-3 rounded-full font-bold hover:bg-emerald-900 transition shadow-lg text-sm uppercase tracking-wider" data-i18n="btn_pricelist">Order Now</a>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-[2rem] p-4 shadow-xl border border-emerald-100 hover:shadow-emerald-200 transition duration-500 flex flex-col group">
+                    <div class="relative overflow-hidden rounded-2xl mb-6 bg-slate-100 border border-slate-200">
+                        <img src="assets/water.jpg" alt="Watersport" class="w-full h-auto object-contain group-hover:scale-105 transition duration-700">
+                        <div class="absolute top-4 right-4 bg-blue-600/90 backdrop-blur px-4 py-2 rounded-xl text-xs font-black text-white shadow-sm uppercase border border-blue-400">Activity</div>
+                    </div>
+                    <div class="px-2 pb-4 flex flex-col flex-grow">
+                        <h3 class="text-xl md:text-2xl font-bold mb-3 text-emerald-950 font-serif-custom" data-i18n="rent_water_title">Watersport Tanjung Benoa</h3>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-grow" data-i18n="rent_water_desc">Adrenaline-pumping activities including parasailing, jet ski, banana boat, and snorkeling at Tanjung Benoa beach.</p>
+                        <a href="https://wa.me/62881037997971" target="_blank" class="w-full text-center bg-emerald-800 text-amber-500 px-6 py-3 rounded-full font-bold hover:bg-emerald-900 transition shadow-lg text-sm uppercase tracking-wider" data-i18n="btn_pricelist">Order Now</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    
     <section class="py-16 md:py-24 bg-[#eef1ed] rounded-[2rem] md:rounded-[3rem] my-10 border border-emerald-100 max-w-7xl mx-auto mx-4 md:mx-auto">
         <div class="max-w-5xl mx-auto px-4">
             <div class="text-center mb-10 md:mb-16">
                 <span class="bg-emerald-100 text-emerald-800 px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block">Before You Book</span>
-                <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 font-serif-custom">Browse Our Most <span class="text-amber-600 italic">Asked Questions</span></h2>
+                <h2 class="text-3xl md:text-4xl font-bold text-emerald-950 font-serif-custom" data-i18n="faq_title">Browse Our Most <span class="text-amber-600 italic">Asked Questions</span></h2>
                 <div class="w-20 h-1 bg-emerald-500 mx-auto mt-6"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4 text-left">
                 <div class="space-y-4">
                     <details class="group bg-white p-5 rounded-2xl border border-emerald-100 cursor-pointer transition-all shadow-sm">
                         <summary class="flex justify-between items-center font-bold text-emerald-900">
@@ -376,8 +528,8 @@
                     <span class="text-2xl font-black text-amber-500 tracking-tight font-serif-custom">BALINESIA</span>
                 </div>
                 <div class="space-y-4 text-emerald-200/80 text-sm leading-relaxed max-w-sm">
-                    <p>lokasi<br>nanti di sini</p>
-                    <p class="flex items-center justify-center md:justify-start gap-3 text-amber-500"><i class="fab fa-whatsapp text-lg"></i> <span class="text-emerald-200/80">+62 881-0379-97971</span></p>
+                    <p data-i18n="ftr_address">Based in Bali, Indonesia.<br>Premium Tour & Travel Service.</p>
+                    <p class="flex items-center justify-center md:justify-start gap-3 text-amber-500"><i class="fab fa-whatsapp text-lg"></i> <span class="text-emerald-200/80" dir="ltr">+62 881-0379-97971</span></p>
                     <p class="flex items-center justify-center md:justify-start gap-3 text-amber-500"><i class="fas fa-envelope text-lg"></i> <span class="text-emerald-200/80">balinesiajourneys@gmail.com</span></p>
                 </div>
                 <div class="flex space-x-4 mt-8 justify-center md:justify-start w-full">
@@ -386,13 +538,15 @@
                 </div>
             </div>
             <div class="md:pl-10">
-                <h4 class="font-bold text-xl text-amber-500 mb-6 font-serif-custom">Our Pages</h4>
+                <h4 class="font-bold text-xl text-amber-500 mb-6 font-serif-custom" data-i18n="ftr_pages">Our Pages</h4>
                 <ul class="space-y-4 text-emerald-200/80">
-                    <li><a href="#about" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> About Us</a></li>
-                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Special Tour</a></li>
-                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Day Tour</a></li>
-                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Activity Combo Packages</a></li>
-                    <li><a href="#" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> Airport Transfer Service</a></li>
+                    <li><a href="#about" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="nav_about">About Us</span></a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="ftr_special">Special Tour</span></a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="ftr_day">Day Tour</span></a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="ftr_combo">Activity Combo Packages</span></a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="ftr_honeymoon">Honeymoon Package</span></a></li>
+                    <li><a href="#packages" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="ftr_tour">Tour Package</span></a></li>
+                    <li><a href="#services" class="hover:text-amber-400 transition flex items-center justify-center md:justify-start gap-2"><i class="fas fa-arrow-right text-amber-600 text-sm"></i> <span data-i18n="ftr_airport">Airport Transfer Service</span></a></li>
                 </ul>
             </div>
         </div>
@@ -403,7 +557,6 @@
     </a>
 
     <script>
-        // Logika Navbar HP
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
         const icon = mobileMenuBtn.querySelector('i');
@@ -421,21 +574,22 @@
 
         const translations = {
             en: {
-                nav_home: "Home", nav_about: "About Us", nav_packages: "Packages", btn_book: "RESERVE NOW",
+                nav_home: "Home", nav_about: "About Us", nav_services: "Services", nav_packages: "Packages", btn_book: "RESERVE NOW", select_lang: "Select Language",
                 hero_badge: "Your Island Gateway", hero_title: "Unforgettable Bali <br>Private Escapes", hero_desc: "Immerse yourself in Bali's breathtaking landscapes, ancient temples, and vibrant culture through our completely personalized day trips.",
                 
-                about_title: "Travel in Style, Experience Bali",
-                about_para1: "Balinesia Journeys is a premium tour & travel service based in Bali, Indonesia. Offering personalized private tours and exclusive travel experiences.",
-                about_para2: "With professional local drivers and tailored itineraries, we deliver comfort, authenticity, and unforgettable journeys across the Island of the Gods. 🌴 Private & Custom Tours 📍 Bali, Indonesia ✨",
+                // Teks About Us Baru
+                about_title: "Your Trusted Travel Partner in Bali",
+                about_para1: "Balinesia Journeys is a premium tour & travel service based in Bali. Explore the beauty of Bali and Indonesia's best destinations with our exclusive and reliable services.",
+                about_para2: "We are here to provide a comfortable, safe, and unforgettable travel experience. Enjoy a hassle-free journey, we take care of everything! 🌴 Private & Custom Tours 📍 Bali, Indonesia ✨",
 
+                srv_badge: "Our Services", srv_title: "What We Offer",
+                srv_1: "Private Tour Bali", srv_2: "Airport Pick-up & Drop-off", srv_3: "Best Hotel & Villa Booking", srv_4: "Nusa Penida & Gili Fastboat Tickets", srv_5: "Bali Tourist Attraction Tickets", srv_6: "Bali to Ijen, Bromo & Lombok Tours",
                 why_title: "What Makes Us the <span class='text-amber-600 italic'>Right Choice</span>",
                 why_1_title: "Trusted Local Guides", why_1_desc: "Explore Bali with experienced, English-speaking local experts.",
                 why_2_title: "Private & Flexible", why_2_desc: "Customize your itinerary with private day trips and packages.",
                 why_3_title: "Comfortable Transport", why_3_desc: "Travel in air-conditioned vehicles with professional drivers.",
                 why_4_title: "Hassle-Free Booking", why_4_desc: "Easy online booking with transparent prices for all tours.",
-
-                tag_south: "South Bali", tag_east: "East Bali", tag_highlands: "Highlands", tag_west: "West Bali", tag_north: "North Bali", tag_experience: "Experience", tag_central: "Central Bali", tag_culture: "Culture", tag_heritage: "Heritage",
-                
+                pkg_header: "Iconic Bali Experiences", tag_south: "South Bali", tag_east: "East Bali", tag_highlands: "Highlands", tag_west: "West Bali", tag_north: "North Bali", tag_experience: "Experience", tag_central: "Central Bali", tag_culture: "Culture", tag_heritage: "Heritage",
                 pkg_gwk_title: "Garuda Wisnu Kencana", pkg_gwk_desc: "Marvel at the monumental statue of Lord Vishnu riding the mythical Garuda.",
                 pkg_lempuyangan_title: "Gates of Heaven", pkg_lempuyangan_desc: "Stand between the famous gates with majestic Mt. Agung as your backdrop.",
                 pkg_kintamani_title: "Batur Volcano View", pkg_kintamani_desc: "Enjoy breathtaking panoramic views of Lake Batur and the active volcano.",
@@ -452,29 +606,42 @@
                 pkg_ulundanu_title: "Ulun Danu Temple", pkg_ulundanu_desc: "A beautiful water temple situated on Lake Beratan, surrounded by misty mountains and serene waters.",
                 pkg_uluwatu_title: "Uluwatu Temple", pkg_uluwatu_desc: "An ancient sea temple perched on the edge of a dramatic cliff overlooking the Indian Ocean.",
                 
+                // Teks Package Baru
+                exc_badge: "Premium Stays", exc_title: "Exclusive & Honeymoon Packages",
+                tag_romantic: "Romantic", tag_multiday: "Multi-Day",
+                pkg_honey_title: "Romantic Honeymoon", pkg_honey_desc: "Celebrate your love with our romantic getaway package. Includes private villa, romantic dinner, and couples spa.",
+                pkg_4days_title: "4 Days 3 Nights Tour", pkg_4days_desc: "The ultimate Bali experience. Explore the best of the island from south beaches to central highlands in 4 days.",
+                btn_detail: "View Details", rent_badge: "Transport & Fun", rent_title: "Car Rental & Watersport",
+                rent_car_title: "Bali Car Rentals", rent_car_desc: "Available for self-drive or with a professional English-speaking driver. Flexible daily rates for your convenience.",
+                rent_water_title: "Tanjung Benoa Watersport", rent_water_desc: "Adrenaline-pumping activities including parasailing, jet ski, banana boat, and snorkeling at Tanjung Benoa beach.",
+                btn_pricelist: "Check Pricelist",
+
+                faq_title: "Browse Our Most <span class='text-amber-600 italic'>Asked Questions</span>",
                 faq_q1: "What types of Bali tours do you offer?", faq_a1: "We specialize in private day tours, culture combo packages, Nusa Penida excursions, reliable airport transfers, and fully customized travel itineraries across Bali.",
                 faq_q2: "Can I customize my tour itinerary?", faq_a2: "Yes, absolutely! All our tours are fully flexible. You are free to modify the schedule and choose the destinations that interest you the most.",
                 faq_q3: "Are your tours suitable for families and kids?", faq_a3: "Yes, Bali is wonderful for families! We can provide baby car seats upon request and adjust the itinerary to be comfortable for all ages.",
-                faq_q4: "Are meals included in the tours?", faq_a4: "Unless specified in all-inclusive combo packages, lunch is generally excluded, giving you the freedom to pick your preferred dining spots."
+                faq_q4: "Are meals included in the tours?", faq_a4: "Unless specified in all-inclusive combo packages, lunch is generally excluded, giving you the freedom to pick your preferred dining spots.",
+                ftr_address: "Based in Bali, Indonesia.<br>Premium Tour & Travel Service.", ftr_pages: "Our Pages", ftr_special: "Special Tour", ftr_day: "Day Tour", ftr_combo: "Activity Combo Packages", ftr_honeymoon: "Honeymoon Package", ftr_tour: "Tour Package", ftr_airport: "Airport Transfer Service"
             },
             id: {
-                nav_home: "Beranda", nav_about: "Tentang Kami", nav_packages: "Paket Tour", btn_book: "PESAN SEKARANG",
+                nav_home: "Beranda", nav_about: "Tentang Kami", nav_services: "Layanan", nav_packages: "Paket Tour", btn_book: "PESAN SEKARANG", select_lang: "Pilih Bahasa",
                 hero_badge: "Gerbang Liburan Anda", hero_title: "Liburan Privat <br>Bali Tak Terlupakan", hero_desc: "Jelajahi keindahan alam, pura bersejarah, dan budaya Bali melalui layanan perjalanan harian yang disesuaikan khusus untuk Anda.",
                 
-                about_title: "Liburan Berkelas, Nikmati Bali Seutuhnya",
-                about_para1: "Balinesia Journeys adalah layanan tur & perjalanan premium yang berbasis di Bali, Indonesia. Kami menawarkan tur pribadi yang dipersonalisasi dan pengalaman liburan yang eksklusif.",
-                about_para2: "Dengan pengemudi lokal profesional dan rencana perjalanan yang disesuaikan, kami menghadirkan kenyamanan, keaslian, dan perjalanan tak terlupakan di seluruh Pulau Dewata. 🌴 Tur Privat & Kustom 📍 Bali, Indonesia ✨",
+                // Teks About Us Baru
+                about_title: "Mitra Perjalanan Terpercaya Anda di Bali",
+                about_para1: "Balinesia Journeys adalah layanan tur & perjalanan premium yang berbasis di Bali. Jelajahi keindahan Bali dan destinasi terbaik Indonesia dengan layanan eksklusif dan terpercaya.",
+                about_para2: "Kami hadir untuk memberikan pengalaman perjalanan yang nyaman, aman, dan tak terlupakan. Nikmati perjalanan tanpa ribet, semua kami yang urus! 🌴 Tur Privat & Kustom 📍 Bali, Indonesia ✨",
 
+                srv_badge: "Layanan Kami", srv_title: "Yang Kami Tawarkan",
+                srv_1: "Private Tour Bali", srv_2: "Antar Jemput Airport", srv_3: "Booking Hotel & Villa Terbaik", srv_4: "Tiket Fastboat PP ke Nusa Penida & Gili", srv_5: "Booking Tempat Wisata Bali", srv_6: "Private Tour ke Ijen, Bromo & Lombok",
                 why_title: "Mengapa Memilih <span class='text-amber-600 italic'>Layanan Kami</span>",
                 why_1_title: "Pemandu Lokal Terpercaya", why_1_desc: "Jelajahi Bali bersama ahlinya yang berpengalaman dan ramah.",
                 why_2_title: "Privat & Fleksibel", why_2_desc: "Sesuaikan rencana perjalanan Anda dengan paket harian privat.",
                 why_3_title: "Transportasi Nyaman", why_3_desc: "Bepergian di kendaraan ber-AC dengan pengemudi profesional.",
                 why_4_title: "Pemesanan Mudah", why_4_desc: "Pemesanan online praktis dengan harga transparan untuk semua tur.",
-
-                tag_south: "Bali Selatan", tag_east: "Bali Timur", tag_highlands: "Dataran Tinggi", tag_west: "Bali Barat", tag_north: "Bali Utara", tag_experience: "Aktivitas", tag_central: "Bali Tengah", tag_culture: "Budaya", tag_heritage: "Sejarah",
-                
+                pkg_header: "Destinasi Ikonik Bali", tag_south: "Bali Selatan", tag_east: "Bali Timur", tag_highlands: "Dataran Tinggi", tag_west: "Bali Barat", tag_north: "Bali Utara", tag_experience: "Aktivitas", tag_central: "Bali Tengah", tag_culture: "Budaya", tag_heritage: "Sejarah",
                 pkg_gwk_title: "Garuda Wisnu Kencana", pkg_gwk_desc: "Kagumi patung monumental Dewa Wisnu yang mengendarai Garuda.",
-                pkg_lempuyangan_title: "Gerbang Surga Lempuyangan", pkg_lempuyangan_desc: "Berdiri di antara gerbang ikonik dengan latar belakang Gunung Agung yang megah.",
+                pkg_lempuyangan_title: "Gerbang Lempuyangan", pkg_lempuyangan_desc: "Berdiri di antara gerbang ikonik dengan latar belakang Gunung Agung yang megah.",
                 pkg_kintamani_title: "Pemandangan Gunung Batur", pkg_kintamani_desc: "Nikmati panorama spektakuler Danau Batur dan gunung berapi aktif.",
                 pkg_kecak_title: "Tari Kecak Uluwatu", pkg_kecak_desc: "Pertunjukan tari api magis dengan latar belakang matahari terbenam.",
                 pkg_lot_title: "Pura Tanah Lot", pkg_lot_desc: "Pura laut memukau yang bertengger di atas tebing batu dikelilingi ombak samudra.",
@@ -489,27 +656,213 @@
                 pkg_ulundanu_title: "Pura Ulun Danu Beratan", pkg_ulundanu_desc: "Pura air indah yang terletak di Danau Beratan, dikelilingi oleh pegunungan berkabut dan perairan yang tenang.",
                 pkg_uluwatu_title: "Pura Uluwatu", pkg_uluwatu_desc: "Pura laut kuno yang bertengger di tepi tebing dramatis menghadap Samudra Hindia.",
                 
+                // Teks Package Baru
+                exc_badge: "Liburan Premium", exc_title: "Paket Eksklusif & Honeymoon",
+                tag_romantic: "Romantis", tag_multiday: "Beberapa Hari",
+                pkg_honey_title: "Paket Honeymoon Romantis", pkg_honey_desc: "Rayakan cinta Anda dengan paket liburan romantis kami. Termasuk private villa, makan malam romantis, dan spa pasangan.",
+                pkg_4days_title: "Paket Tour 4 Hari 3 Malam", pkg_4days_desc: "Pengalaman liburan Bali terbaik. Jelajahi tempat wisata terbaik dari pantai selatan hingga dataran tinggi dalam 4 hari.",
+                btn_detail: "Lihat Detail", rent_badge: "Transportasi & Aktivitas", rent_title: "Sewa Mobil & Watersport",
+                rent_car_title: "Sewa Mobil Bali", rent_car_desc: "Tersedia untuk lepas kunci (Self Drive) atau dengan supir profesional. Harga harian yang fleksibel untuk kenyamanan Anda.",
+                rent_water_title: "Watersport Tanjung Benoa", rent_water_desc: "Aktivitas pemacu adrenalin seperti parasailing, jet ski, banana boat, dan snorkeling di pantai Tanjung Benoa.",
+                btn_pricelist: "Cek Daftar Harga",
+
+                faq_title: "Pertanyaan <span class='text-amber-600 italic'>Sering Diajukan</span>",
                 faq_q1: "Jenis tur apa yang Anda tawarkan?", faq_a1: "Kami berspesialisasi dalam tur harian pribadi, paket kombo budaya, ekskursi Nusa Penida, transfer bandara yang andal, dan rencana perjalanan yang disesuaikan.",
                 faq_q2: "Bisakah saya mengubah rencana perjalanan?", faq_a2: "Ya, tentu saja! Semua tur kami sepenuhnya fleksibel. Anda bebas mengubah jadwal dan memilih destinasi yang paling Anda minati.",
                 faq_q3: "Apakah tur ini cocok untuk keluarga dan anak-anak?", faq_a3: "Ya, Bali sangat ramah keluarga! Kami dapat menyediakan kursi mobil bayi berdasarkan permintaan dan menyesuaikan jadwal agar nyaman untuk semua usia.",
-                faq_q4: "Apakah makan siang sudah termasuk?", faq_a4: "Kecuali ditentukan dalam paket tertentu, makan siang umumnya tidak termasuk, memberikan Anda kebebasan untuk memilih tempat makan pilihan Anda."
+                faq_q4: "Apakah makan siang sudah termasuk?", faq_a4: "Kecuali ditentukan dalam paket tertentu, makan siang umumnya tidak termasuk, memberikan Anda kebebasan untuk memilih tempat makan pilihan Anda.",
+                ftr_address: "Berbasis di Bali, Indonesia.<br>Layanan Tur & Travel Premium.", ftr_pages: "Halaman Kami", ftr_special: "Tur Spesial", ftr_day: "Tur Harian", ftr_combo: "Paket Kombo Aktivitas", ftr_honeymoon: "Paket Honeymoon", ftr_tour: "Paket Tour", ftr_airport: "Layanan Transfer Bandara"
+            },
+            zh: {
+                nav_home: "主页", nav_about: "关于我们", nav_services: "服务", nav_packages: "旅游套餐", btn_book: "立即预订", select_lang: "选择语言",
+                hero_badge: "您的海岛门户", hero_title: "难忘的巴厘岛 <br>私人度假", hero_desc: "通过我们完全个性化的一日游，让您沉浸在巴厘岛令人惊叹的风景、古老的寺庙和充满活力的文化中。",
+                about_title: "您在巴厘岛值得信赖的旅行伙伴",
+                about_para1: "Balinesia Journeys 是一家总部位于巴厘岛的优质旅游服务公司。以独家、可靠的服务带您探索巴厘岛及印尼最佳目的地的美景。",
+                about_para2: "我们致力于为您提供舒适、安全、难忘的旅行体验。享受无忧无虑的旅程，一切由我们来打理！🌴 私人定制游 📍 印尼，巴厘岛 ✨",
+                srv_badge: "我们的服务", srv_title: "我们提供什么",
+                srv_1: "巴厘岛私人游", srv_2: "机场接送服务", srv_3: "最佳酒店及别墅预订", srv_4: "努沙佩尼达和吉利群岛快艇票", srv_5: "巴厘岛旅游景点门票", srv_6: "巴厘岛至伊真、布罗莫和龙目岛游",
+                why_title: "为什么 <span class='text-amber-600 italic'>选择我们</span>",
+                why_1_title: "值得信赖的当地向导", why_1_desc: "与经验丰富的英语当地专家一起探索巴厘岛。",
+                why_2_title: "私人且灵活", why_2_desc: "定制您的私人一日游和套餐行程。",
+                why_3_title: "舒适的交通", why_3_desc: "乘坐配有专业司机的空调车旅行。",
+                why_4_title: "无忧预订", why_4_desc: "轻松在线预订，所有旅游价格透明。",
+                pkg_header: "巴厘岛标志性体验", tag_south: "南巴厘岛", tag_east: "东巴厘岛", tag_highlands: "高地", tag_west: "西巴厘岛", tag_north: "北巴厘岛", tag_experience: "体验", tag_central: "中巴厘岛", tag_culture: "文化", tag_heritage: "遗产",
+                pkg_gwk_title: "神鹰广场", pkg_gwk_desc: "惊叹于毗湿奴神骑着神话中的迦楼罗的巨大雕像。",
+                pkg_lempuyangan_title: "天堂之门", pkg_lempuyangan_desc: "站在著名的门之间，以雄伟的阿贡火山为背景。",
+                pkg_kintamani_title: "京打马尼火山景观", pkg_kintamani_desc: "欣赏巴杜尔湖和活火山的壮丽全景。",
+                pkg_kecak_title: "日落克差舞", pkg_kecak_desc: "在印度洋日落的背景下进行的神奇文化火舞。",
+                pkg_lot_title: "海神庙", pkg_lot_desc: "一座令人惊叹的海上寺庙，坐落在被海浪包围的岩石露头上。",
+                pkg_lovina_title: "罗威纳海滩海豚", pkg_lovina_desc: "踏上宁静的早晨乘船游览，在日出时观看野生海豚玩耍。",
+                pkg_luwak_title: "猫屎咖啡种植园", pkg_luwak_desc: "探索制作世界上最奇特咖啡之一的独特过程。",
+                pkg_melasti_title: "美拉斯蒂海滩", pkg_melasti_desc: "美丽的白沙滩，隐藏在巴厘岛高耸的石灰岩悬崖下，海水清澈见底。",
+                pkg_padang_title: "巴东巴东海滩", pkg_padang_desc: "一颗隐藏的宝石，以其清澈碧蓝的海水、柔软的白沙和戏剧性的石灰岩悬崖而闻名。",
+                pkg_pandawa_title: "潘达瓦海滩", pkg_pandawa_desc: "一个美丽的沿海地区，以其白色的沙滩和高耸的石灰岩悬崖而闻名。",
+                pkg_tegallalang_title: "德格拉朗梯田", pkg_tegallalang_desc: "探索美丽的梯田，展示了传统的巴厘岛合作灌溉系统。",
+                pkg_tirtaempul_title: "圣泉寺", pkg_tirtaempul_desc: "参观以其神圣泉水而闻名的神圣水神庙，当地人在这里参加传统的净化仪式。",
+                pkg_ubud_title: "乌布皇宫", pkg_ubud_desc: "探索乌布中心的历史悠久的皇家宫殿，以其传统的巴厘岛建筑而闻名。",
+                pkg_ulundanu_title: "水神庙", pkg_ulundanu_desc: "一座美丽的水上寺庙，位于贝拉坦湖上，群山环绕，水面宁静。",
+                pkg_uluwatu_title: "情人崖", pkg_uluwatu_desc: "一座古老的海上寺庙，坐落在悬崖边缘，俯瞰印度洋。",
+                exc_badge: "尊享住宿", exc_title: "独家与蜜月套餐",
+                tag_romantic: "浪漫", tag_multiday: "多日游",
+                pkg_honey_title: "浪漫蜜月", pkg_honey_desc: "用我们的浪漫度假套餐庆祝您的爱情。包括私人别墅、浪漫晚餐和情侣水疗。",
+                pkg_4days_title: "4天3晚旅游", pkg_4days_desc: "终极巴厘岛体验。在4天内探索从南部海滩到中部高地的最佳岛屿风光。",
+                btn_detail: "查看详情", rent_badge: "交通与乐趣", rent_title: "租车与水上运动",
+                rent_car_title: "巴厘岛租车", rent_car_desc: "提供自驾或配备专业英语司机的服务。灵活的日租价格，方便您的出行。",
+                rent_water_title: "南湾水上运动", rent_water_desc: "令人肾上腺素飙升的活动，包括拖曳伞、水上摩托、香蕉船和浮潜。",
+                btn_pricelist: "查看价格表",
+                faq_title: "浏览我们的 <span class='text-amber-600 italic'>常见问题</span>",
+                faq_q1: "你们提供什么类型的巴厘岛旅游？", faq_a1: "我们专注于私人一日游、文化组合套餐、努沙佩尼达游览、可靠的机场接送和完全定制的巴厘岛行程。",
+                faq_q2: "我可以定制我的行程吗？", faq_a2: "是的，绝对可以！我们所有的旅行都是完全灵活的。您可以自由修改时间表并选择您最感兴趣的目的地。",
+                faq_q3: "你们的旅游适合家庭和孩子吗？", faq_a3: "是的！可根据要求提供婴儿汽车座椅，并调整行程以适应所有年龄段。",
+                faq_q4: "旅行中包含餐食吗？", faq_a4: "除非在全包组合套餐中指定，否则通常不包括午餐，让您自由选择喜欢的餐饮场所。",
+                ftr_address: "位于印尼巴厘岛。<br>高级旅游与旅行服务。", ftr_pages: "我们的页面", ftr_special: "特别旅游", ftr_day: "一日游", ftr_combo: "活动组合套餐", ftr_honeymoon: "蜜月套餐", ftr_tour: "旅游套餐", ftr_airport: "机场接送服务"
+            },
+            ja: {
+                nav_home: "ホーム", nav_about: "私たちについて", nav_services: "サービス", nav_packages: "パッケージ", btn_book: "今すぐ予約", select_lang: "言語を選択",
+                hero_badge: "あなたの島の入り口", hero_title: "忘れられないバリ <br>プライベートエスケープ", hero_desc: "完全にパーソナライズされた日帰り旅行で、バリの息をのむような風景、古代の寺院、活気ある文化に浸ってください。",
+                about_title: "バリ島で信頼できるトラベルパートナー",
+                about_para1: "Balinesia Journeysは、バリ島を拠点とするプレミアムツアー＆トラベルサービスです。エクスクルーシブで信頼できるサービスで、バリ島とインドネシアの最高の目的地の美しさを探索してください。",
+                about_para2: "快適で安全、そして忘れられない旅行体験を提供するためにここにいます。手間いらずの旅をお楽しみください。すべて私たちにお任せください！🌴 プライベート＆カスタムツアー 📍 バリ島、インドネシア ✨",
+                srv_badge: "私たちのサービス", srv_title: "提供するもの",
+                srv_1: "バリ島プライベートツアー", srv_2: "空港送迎", srv_3: "最高のホテル＆ヴィラ予約", srv_4: "ヌサペニダ＆ギリ行きスピードボートチケット", srv_5: "バリの観光名所チケット", srv_6: "バリ島からイジェン、ブロモ、ロンボクへのツアー",
+                why_title: "私たちが <span class='text-amber-600 italic'>選ばれる理由</span>",
+                why_1_title: "信頼できる地元ガイド", why_1_desc: "経験豊富で英語を話す地元の専門家と一緒にバリを探索しましょう。",
+                why_2_title: "プライベートで柔軟", why_2_desc: "プライベートな日帰り旅行やパッケージで旅程をカスタマイズ。",
+                why_3_title: "快適な移動", why_3_desc: "プロのドライバーによるエアコン完備の車両での移動。",
+                why_4_title: "手間いらずの予約", why_4_desc: "透明な価格でオンラインで簡単に予約。",
+                pkg_header: "バリの象徴的な体験", tag_south: "南バリ", tag_east: "東バリ", tag_highlands: "高地", tag_west: "西バリ", tag_north: "北バリ", tag_experience: "体験", tag_central: "中部バリ", tag_culture: "文化", tag_heritage: "遺産",
+                pkg_gwk_title: "ガルーダ・ウィスヌ・ケンチャナ", pkg_gwk_desc: "神話のガルーダに乗るヴィシュヌ神の記念碑的な像に驚嘆してください。",
+                pkg_lempuyangan_title: "天国の門", pkg_lempuyangan_desc: "雄大なアグン山を背景に有名な門の間に立ちます。",
+                pkg_kintamani_title: "キンタマーニ火山ビュー", pkg_kintamani_desc: "バトゥール湖と活火山の息をのむようなパノラマの景色をお楽しみください。",
+                pkg_kecak_title: "サンセットケチャダンス", pkg_kecak_desc: "インド洋の夕日を背景にした魔法のような文化的なファイヤーダンス。",
+                pkg_lot_title: "タナロット寺院", pkg_lot_desc: "海の波に囲まれた岩の露頭にとまる素晴らしい海寺院。",
+                pkg_lovina_title: "ロビナビーチイルカ", pkg_lovina_desc: "日の出時に野生のイルカが遊ぶのを見るための穏やかな朝のボートツアーに出発します。",
+                pkg_luwak_title: "ルアックコーヒー農園", pkg_luwak_desc: "世界で最もエキゾチックなコーヒーの1つを作るユニークなプロセスを発見してください。",
+                pkg_melasti_title: "メラスティビーチ", pkg_melasti_desc: "透明なターコイズブルーの海を持つ、そびえ立つ石灰岩の崖の下に隠れた美しい白い砂浜。",
+                pkg_padang_title: "パダンパダンビーチ", pkg_padang_desc: "透き通ったターコイズブルーの海、柔らかい白い砂浜、ドラマチックな石灰岩の崖で有名な隠れた宝石。",
+                pkg_pandawa_title: "パンダワビーチ", pkg_pandawa_desc: "白い砂浜とそびえ立つ石灰岩の崖で知られる美しい沿岸地域。",
+                pkg_tegallalang_title: "テガラランライステラス", pkg_tegallalang_desc: "スバックとして知られる伝統的なバリの灌漑システムを紹介する美しい棚田を探索してください。",
+                pkg_tirtaempul_title: "ティルタエンプル寺院", pkg_tirtaempul_desc: "地元の人々が浄化の儀式に参加する神聖な泉で知られる神聖な水寺院を訪れてください。",
+                pkg_ubud_title: "ウブド王宮", pkg_ubud_desc: "伝統的なバリ建築で有名なウブドの中心部にある歴史的な王宮を発見してください。",
+                pkg_ulundanu_title: "ウルンダヌ寺院", pkg_ulundanu_desc: "霧に包まれた山々と静かな海に囲まれたブラタン湖に位置する美しい水寺院。",
+                pkg_uluwatu_title: "ウルワツ寺院", pkg_uluwatu_desc: "インド洋を見下ろすドラマチックな崖の端にとまる古代の海寺院。",
+                exc_badge: "プレミアムステイ", exc_title: "限定＆ハネムーンパッケージ",
+                tag_romantic: "ロマンチック", tag_multiday: "複数日",
+                pkg_honey_title: "ロマンチックハネムーン", pkg_honey_desc: "私たちのロマンチックな休暇パッケージであなたの愛を祝いましょう。プライベートヴィラ、ディナー、スパが含まれます。",
+                pkg_4days_title: "4日3泊ツアー", pkg_4days_desc: "究極のバリ体験。南部のビーチから中部の高地まで、4日間で島の最高を探索してください。",
+                btn_detail: "詳細を見る", rent_badge: "交通と楽しみ", rent_title: "レンタカーとマリンスポーツ",
+                rent_car_title: "バリレンタカー", rent_car_desc: "セルフドライブまたはプロの英語を話すドライバー付きでご利用いただけます。便利な柔軟な日額料金。",
+                rent_water_title: "タンジュンブノアマリンスポーツ", rent_water_desc: "パラセーリング、ジェットスキー、バナナボート、シュノーケリングなどのアドレナリンが出るアクティビティ。",
+                btn_pricelist: "料金表を見る",
+                faq_title: "よくある <span class='text-amber-600 italic'>質問</span>",
+                faq_q1: "どのような種類のバリツアーを提供していますか？", faq_a1: "プライベート日帰りツアー、コンボパッケージ、ヌサペニダのエクスカーション、空港送迎などを専門としています。",
+                faq_q2: "旅程をカスタマイズできますか？", faq_a2: "はい、もちろんです！すべてのツアーは完全に柔軟です。",
+                faq_q3: "ツアーは家族や子供に適していますか？", faq_a3: "はい！ベビーシートもリクエストに応じてご用意できます。",
+                faq_q4: "ツアーに食事は含まれていますか？", faq_a4: "通常、昼食は含まれておらず、お好みのダイニングスポットを自由に選ぶことができます。",
+                ftr_address: "インドネシアのバリ島を拠点としています。<br>プレミアムツアー＆トラベルサービス。", ftr_pages: "ページ", ftr_special: "スペシャルツアー", ftr_day: "日帰りツアー", ftr_combo: "アクティビティコンボ", ftr_honeymoon: "ハネムーンパッケージ", ftr_tour: "ツアーパッケージ", ftr_airport: "空港送迎サービス"
+            },
+            th: {
+                nav_home: "หน้าแรก", nav_about: "เกี่ยวกับเรา", nav_services: "บริการ", nav_packages: "แพ็คเกจ", btn_book: "จองตอนนี้", select_lang: "เลือกภาษา",
+                hero_badge: "ประตูสู่เกาะของคุณ", hero_title: "บาหลีที่น่าจดจำ <br>การหลบหนีส่วนตัว", hero_desc: "ดื่มด่ำไปกับทิวทัศน์ที่น่าทึ่ง วัดโบราณ และวัฒนธรรมที่มีชีวิตชีวาของบาหลีผ่านทริปแบบไปเช้าเย็นกลับแบบส่วนตัวของเรา",
+                about_title: "พันธมิตรการเดินทางที่เชื่อถือได้ของคุณในบาหลี",
+                about_para1: "Balinesia Journeys เป็นบริการทัวร์และการเดินทางระดับพรีเมียมในบาหลี สำรวจความงามของบาหลีและจุดหมายปลายทางที่ดีที่สุดของอินโดนีเซียด้วยบริการสุดพิเศษและเชื่อถือได้",
+                about_para2: "เราอยู่ที่นี่เพื่อมอบประสบการณ์การเดินทางที่สะดวกสบาย ปลอดภัย และน่าจดจำ เพลิดเพลินกับการเดินทางที่ไม่ยุ่งยาก เราดูแลทุกอย่าง! 🌴 ทัวร์ส่วนตัว 📍 บาหลี อินโดนีเซีย ✨",
+                srv_badge: "บริการของเรา", srv_title: "สิ่งที่เรานำเสนอ",
+                srv_1: "ทัวร์ส่วนตัวบาหลี", srv_2: "รับส่งสนามบิน", srv_3: "จองโรงแรมและวิลล่าที่ดีที่สุด", srv_4: "ตั๋วเรือเร็วไปนูซาเปอนีดาและกิลี", srv_5: "ตั๋วสถานที่ท่องเที่ยวในบาหลี", srv_6: "ทัวร์บาหลีไปอีเจี้ยน โบรโม และลอมบอก",
+                why_title: "ทำไมถึง <span class='text-amber-600 italic'>เลือกเรา</span>",
+                why_1_title: "ไกด์ท้องถิ่นที่เชื่อถือได้", why_1_desc: "สำรวจบาหลีกับผู้เชี่ยวชาญในท้องถิ่นที่มีประสบการณ์และพูดภาษาอังกฤษได้",
+                why_2_title: "เป็นส่วนตัวและยืดหยุ่น", why_2_desc: "ปรับแต่งแผนการเดินทางของคุณด้วยทริปและแพ็คเกจส่วนตัว",
+                why_3_title: "การเดินทางที่สะดวกสบาย", why_3_desc: "เดินทางด้วยรถปรับอากาศพร้อมพนักงานขับรถมืออาชีพ",
+                why_4_title: "การจองที่ไม่ยุ่งยาก", why_4_desc: "จองออนไลน์ง่ายๆ พร้อมราคาที่โปร่งใสสำหรับทัวร์ทั้งหมด",
+                pkg_header: "ประสบการณ์บาหลีที่เป็นสัญลักษณ์", tag_south: "บาหลีใต้", tag_east: "บาหลีตะวันออก", tag_highlands: "ที่ราบสูง", tag_west: "บาหลีตะวันตก", tag_north: "บาหลีเหนือ", tag_experience: "ประสบการณ์", tag_central: "บาหลีกลาง", tag_culture: "วัฒนธรรม", tag_heritage: "มรดก",
+                pkg_gwk_title: "สวนวัฒนธรรม GWK", pkg_gwk_desc: "ตื่นตาตื่นใจกับรูปปั้นอันยิ่งใหญ่ของพระวิษณุขี่ครุฑในตำนาน",
+                pkg_lempuyangan_title: "ประตูสวรรค์", pkg_lempuyangan_desc: "ยืนอยู่ระหว่างประตูที่มีชื่อเสียงโดยมีภูเขาอากุงที่สง่างามเป็นฉากหลัง",
+                pkg_kintamani_title: "วิวภูเขาไฟบาตูร์", pkg_kintamani_desc: "เพลิดเพลินกับทัศนียภาพอันงดงามของทะเลสาบบาตูร์และภูเขาไฟที่ยังคุกรุ่นอยู่",
+                pkg_kecak_title: "ระบำไฟเกคักตอนพระอาทิตย์ตก", pkg_kecak_desc: "ระบำไฟทางวัฒนธรรมที่มีมนต์ขลังตั้งอยู่ท่ามกลางฉากหลังของพระอาทิตย์ตกในมหาสมุทรอินเดีย",
+                pkg_lot_title: "วัดทานาล็อต", pkg_lot_desc: "วัดริมทะเลที่สวยงามตั้งอยู่บนโขดหินที่ล้อมรอบด้วยคลื่นทะเล",
+                pkg_lovina_title: "โลวิน่าบีชดอลฟิน", pkg_lovina_desc: "เริ่มต้นการล่องเรือยามเช้าอันเงียบสงบเพื่อชมโลมาป่าเล่นน้ำตอนพระอาทิตย์ขึ้น",
+                pkg_luwak_title: "ไร่กาแฟขี้ชะมด", pkg_luwak_desc: "ค้นพบกระบวนการอันเป็นเอกลักษณ์ในการทำกาแฟที่แปลกใหม่ที่สุดในโลก",
+                pkg_melasti_title: "หาดเมลาสติ", pkg_melasti_desc: "หาดทรายสีขาวที่สวยงามซ่อนตัวอยู่ใต้หน้าผาหินปูนสูงตระหง่านและน้ำทะเลใสแจ๋ว",
+                pkg_padang_title: "หาดปาดังปาดัง", pkg_padang_desc: "อัญมณีที่ซ่อนอยู่ซึ่งมีชื่อเสียงในเรื่องน้ำทะเลสีฟ้าใส หาดทรายสีขาวนุ่ม และหน้าผาหินปูนที่น่าทึ่ง",
+                pkg_pandawa_title: "หาดแพนดาวา", pkg_pandawa_desc: "พื้นที่ชายฝั่งทะเลที่สวยงามเป็นที่รู้จักจากหาดทรายสีขาวและหน้าผาหินปูนที่สูงตระหง่าน",
+                pkg_tegallalang_title: "นาขั้นบันไดเตกัลลาลัง", pkg_tegallalang_desc: "สำรวจทุ่งนาขั้นบันไดที่กว้างใหญ่ที่สวยงามซึ่งแสดงระบบชลประทานแบบดั้งเดิมของบาหลี",
+                pkg_tirtaempul_title: "วัดเทอร์ตาเอ็มพูล", pkg_tirtaempul_desc: "เยี่ยมชมวัดน้ำศักดิ์สิทธิ์ที่มีชื่อเสียงจากน้ำพุศักดิ์สิทธิ์ที่คนในท้องถิ่นมีส่วนร่วมในพิธีกรรมชำระล้าง",
+                pkg_ubud_title: "พระราชวังอูบุด", pkg_ubud_desc: "ค้นพบพระราชวังประวัติศาสตร์ในใจกลางอูบุดซึ่งมีชื่อเสียงด้านสถาปัตยกรรมบาหลีแบบดั้งเดิม",
+                pkg_ulundanu_title: "วัดอูลุนดานู", pkg_ulundanu_desc: "วัดน้ำที่สวยงามตั้งอยู่บนทะเลสาบเบราตัน ล้อมรอบด้วยภูเขาที่ปกคลุมด้วยหมอกและน้ำที่เงียบสงบ",
+                pkg_uluwatu_title: "วัดอูลูวาตู", pkg_uluwatu_desc: "วัดริมทะเลโบราณตั้งอยู่ริมหน้าผาที่มองเห็นมหาสมุทรอินเดีย",
+                exc_badge: "ที่พักระดับพรีเมียม", exc_title: "แพ็คเกจฮันนีมูนและสุดพิเศษ",
+                tag_romantic: "โรแมนติก", tag_multiday: "หลายวัน",
+                pkg_honey_title: "ฮันนีมูนโรแมนติก", pkg_honey_desc: "เฉลิมฉลองความรักของคุณด้วยแพ็คเกจพักผ่อนแสนโรแมนติกของเรา รวมวิลล่าส่วนตัว อาหารค่ำ และสปาคู่",
+                pkg_4days_title: "แพ็คเกจทัวร์ 4 วัน 3 คืน", pkg_4days_desc: "ประสบการณ์บาหลีที่ดีที่สุด สำรวจสิ่งที่ดีที่สุดของเกาะตั้งแต่ชายหาดตอนใต้ไปจนถึงที่ราบสูงตอนกลางใน 4 วัน",
+                btn_detail: "ดูรายละเอียด", rent_badge: "การเดินทางและความสนุกสนาน", rent_title: "รถเช่าและกีฬาทางน้ำ",
+                rent_car_title: "รถเช่าบาหลี", rent_car_desc: "มีให้เช่าขับเองหรือพร้อมคนขับมืออาชีพที่พูดภาษาอังกฤษ อัตรารายวันที่ยืดหยุ่น",
+                rent_water_title: "กีฬาทางน้ำตันจุงเบนัว", rent_water_desc: "กิจกรรมที่ทำให้อะดรีนาลีนสูบฉีด รวมถึงพาราเซล เจ็ตสกี บานาน่าโบ๊ท และดำน้ำตื้น",
+                btn_pricelist: "ตรวจสอบรายการราคา",
+                faq_title: "คำถามที่ <span class='text-amber-600 italic'>พบบ่อย</span>",
+                faq_q1: "คุณมีทัวร์บาหลีประเภทใดบ้าง?", faq_a1: "เรามีความเชี่ยวชาญในทัวร์ส่วนตัวแบบไปเช้าเย็นกลับ แพ็คเกจคอมโบวัฒนธรรม การทัศนศึกษานูซาเปอนีดา และการโอนสนามบิน",
+                faq_q2: "ฉันสามารถปรับแต่งแผนการเดินทางได้หรือไม่?", faq_a2: "ใช่ แน่นอน! ทัวร์ทั้งหมดของเรามีความยืดหยุ่นอย่างเต็มที่",
+                faq_q3: "ทัวร์ของคุณเหมาะสำหรับครอบครัวและเด็กหรือไม่?", faq_a3: "ใช่! เราสามารถจัดหาเบาะนั่งสำหรับเด็กตามคำขอ",
+                faq_q4: "ทัวร์รวมอาหารหรือไม่?", faq_a4: "โดยทั่วไปจะไม่รวมอาหารกลางวัน เพื่อให้คุณมีอิสระในการเลือกสถานที่รับประทานอาหารที่คุณต้องการ",
+                ftr_address: "ตั้งอยู่ในบาหลี ประเทศอินโดนีเซีย<br>บริการทัวร์และการเดินทางระดับพรีเมียม", ftr_pages: "หน้าของเรา", ftr_special: "ทัวร์พิเศษ", ftr_day: "ทัวร์หนึ่งวัน", ftr_combo: "แพ็คเกจกิจกรรมคอมโบ", ftr_honeymoon: "แพ็คเกจฮันนีมูน", ftr_tour: "แพ็คเกจทัวร์", ftr_airport: "บริการรับส่งสนามบิน"
+            },
+            ar: {
+                nav_home: "الرئيسية", nav_about: "معلومات عنا", nav_services: "خدماتنا", nav_packages: "الباقات", btn_book: "احجز الآن", select_lang: "اختر اللغة",
+                hero_badge: "بوابتك إلى الجزيرة", hero_title: "بالي التي لا تنسى <br>رحلات خاصة", hero_desc: "انغمس في مناظر بالي الخلابة والمعابد القديمة والثقافة النابضة بالحياة من خلال رحلاتنا اليومية المخصصة.",
+                about_title: "شريك سفرك الموثوق به في بالي",
+                about_para1: "بالينيسيا جورنيز هي خدمة سياحية وسفر متميزة مقرها في بالي. اكتشف جمال بالي وأفضل الوجهات في إندونيسيا من خلال خدمات حصرية وموثوقة.",
+                about_para2: "نحن هنا لتقديم تجربة سفر مريحة وآمنة ولا تُنسى. استمتع برحلة خالية من المتاعب، نحن نعتني بكل شيء! 🌴 جولات خاصة ومخصصة 📍 بالي، إندونيسيا ✨",
+                srv_badge: "خدماتنا", srv_title: "ما نقدمه",
+                srv_1: "جولات خاصة في بالي", srv_2: "خدمة النقل من وإلى المطار", srv_3: "حجز أفضل الفنادق والفلل", srv_4: "تذاكر القوارب السريعة إلى نوسا بينيدا وجيلي", srv_5: "تذاكر المعالم السياحية في بالي", srv_6: "جولات من بالي إلى إيجن، برومو، ولومبوك",
+                why_title: "لماذا <span class='text-amber-600 italic'>نحن الخيار الأفضل</span>",
+                why_1_title: "مرشدون محليون موثوقون", why_1_desc: "اكتشف بالي مع خبراء محليين ذوي خبرة يتحدثون الإنجليزية.",
+                why_2_title: "الخصوصية والمرونة", why_2_desc: "قم بتخصيص مسار رحلتك مع رحلات يومية خاصة وباقات.",
+                why_3_title: "نقل مريح", why_3_desc: "سافر في مركبات مكيفة مع سائقين محترفين.",
+                why_4_title: "حجز خالٍ من المتاعب", why_4_desc: "حجز سهل عبر الإنترنت بأسعار شفافة لجميع الجولات.",
+                pkg_header: "تجارب بالي الأيقونية", tag_south: "جنوب بالي", tag_east: "شرق بالي", tag_highlands: "المرتفعات", tag_west: "غرب بالي", tag_north: "شمال بالي", tag_experience: "تجربة", tag_central: "وسط بالي", tag_culture: "ثقافة", tag_heritage: "تراث",
+                pkg_gwk_title: "حديقة جارودا ويسنو كينكانا", pkg_gwk_desc: "استمتع بالتمثال الضخم للإله فيشنو وهو يركب طائر الجارودا الأسطوري.",
+                pkg_lempuyangan_title: "بوابات الجنة", pkg_lempuyangan_desc: "قف بين البوابات الشهيرة مع جبل أجونج المهيب كخلفية.",
+                pkg_kintamani_title: "إطلالة على بركان باتور", pkg_kintamani_desc: "استمتع بمناظر بانورامية خلابة لبحيرة باتور والبركان النشط.",
+                pkg_kecak_title: "رقصة كيكاك عند غروب الشمس", pkg_kecak_desc: "رقصة نار ثقافية سحرية تقع على خلفية غروب الشمس في المحيط الهندي.",
+                pkg_lot_title: "معبد تانا لوت", pkg_lot_desc: "معبد بحري مذهل يقع على نتوء صخري تحيط به أمواج المحيط.",
+                pkg_lovina_title: "دلافين شاطئ لوفينا", pkg_lovina_desc: "انطلق في جولة هادئة بالقارب في الصباح لمشاهدة الدلافين البرية وهي تلعب عند شروق الشمس.",
+                pkg_luwak_title: "مزرعة قهوة لواك", pkg_luwak_desc: "اكتشف العملية الفريدة لصنع واحدة من أكثر أنواع القهوة تميزًا في العالم.",
+                pkg_melasti_title: "شاطئ ميلاستي", pkg_melasti_desc: "شاطئ رملي أبيض جميل يقع أسفل منحدرات الحجر الجيري الشاهقة مع مياه صافية.",
+                pkg_padang_title: "شاطئ بادانج بادانج", pkg_padang_desc: "جوهرة مخفية تشتهر بمياهها الفيروزية الصافية ورمالها البيضاء الناعمة.",
+                pkg_pandawa_title: "شاطئ بانداوا", pkg_pandawa_desc: "منطقة ساحلية جميلة تشتهر بشواطئها الرملية البيضاء ومنحدراتها الشاهقة.",
+                pkg_tegallalang_title: "مدرجات أرز تيجالالانج", pkg_tegallalang_desc: "اكتشف الامتداد الجميل لحقول الأرز المدرجة التي تعرض نظام الري التقليدي.",
+                pkg_tirtaempul_title: "معبد تيرتا إمبول", pkg_tirtaempul_desc: "قم بزيارة معبد المياه المقدس المعروف بنبعه المقدس حيث يشارك السكان المحليون في طقوس التطهير.",
+                pkg_ubud_title: "قصر أوبود", pkg_ubud_desc: "اكتشف القصر الملكي التاريخي في قلب أوبود، المشهور بهندسته المعمارية البالية.",
+                pkg_ulundanu_title: "معبد أولون دانو", pkg_ulundanu_desc: "معبد مائي جميل يقع على بحيرة براتان، تحيط به الجبال الضبابية والمياه الهادئة.",
+                pkg_uluwatu_title: "معبد أولوواتو", pkg_uluwatu_desc: "معبد بحري قديم يقع على حافة جرف يطل على المحيط الهندي.",
+                exc_badge: "إقامات فاخرة", exc_title: "باقات حصرية وشهر العسل",
+                tag_romantic: "رومانسي", tag_multiday: "عدة أيام",
+                pkg_honey_title: "شهر عسل رومانسي", pkg_honey_desc: "احتفل بحبك مع باقة العطلات الرومانسية لدينا. تشمل فيلا خاصة وعشاء رومانسي ومنتجع صحي للأزواج.",
+                pkg_4days_title: "جولة 4 أيام و 3 ليالي", pkg_4days_desc: "تجربة بالي المثالية. استكشف أفضل ما في الجزيرة من الشواطئ الجنوبية إلى المرتفعات الوسطى في 4 أيام.",
+                btn_detail: "عرض التفاصيل", rent_badge: "النقل والمرح", rent_title: "تأجير السيارات والرياضات المائية",
+                rent_car_title: "تأجير سيارات بالي", rent_car_desc: "متوفر للقيادة الذاتية أو مع سائق محترف يتحدث الإنجليزية. أسعار يومية مرنة.",
+                rent_water_title: "تنجونج بينوا للرياضات المائية", rent_water_desc: "أنشطة تضخ الأدرينالين بما في ذلك التزلج الهوائي، الجت سكي، قارب الموز، والغطس.",
+                btn_pricelist: "تحقق من قائمة الأسعار",
+                faq_title: "الأسئلة <span class='text-amber-600 italic'>الشائعة</span>",
+                faq_q1: "ما أنواع جولات بالي التي تقدمونها؟", faq_a1: "نحن متخصصون في الجولات اليومية الخاصة، وباقات الأنشطة، وخدمات النقل من المطار.",
+                faq_q2: "هل يمكنني تخصيص مسار رحلتي؟", faq_a2: "نعم، بالتأكيد! جميع جولاتنا مرنة تمامًا.",
+                faq_q3: "هل جولاتكم مناسبة للعائلات والأطفال؟", faq_a3: "نعم! يمكننا توفير مقاعد أطفال للسيارات عند الطلب.",
+                faq_q4: "هل الوجبات مشمولة في الجولات؟", faq_a4: "يُستثنى الغداء عمومًا، مما يمنحك حرية اختيار أماكن تناول الطعام المفضلة لديك.",
+                ftr_address: "مقرنا في بالي، إندونيسيا.<br>خدمة سياحية وسفر متميزة.", ftr_pages: "صفحاتنا", ftr_special: "جولة خاصة", ftr_day: "جولة يومية", ftr_combo: "باقات الأنشطة", ftr_honeymoon: "باقة شهر العسل", ftr_tour: "باقات الجولات", ftr_airport: "خدمة النقل من المطار"
             },
             hi: {
-                nav_home: "मुख्य पृष्ठ", nav_about: "हमारे बारे में", nav_packages: "पैकेज", btn_book: "अभी बुक करें",
+                nav_home: "मुख्य पृष्ठ", nav_about: "हमारे बारे में", nav_services: "सेवाएं", nav_packages: "पैकेज", btn_book: "अभी बुक करें", select_lang: "भाषा चुनें",
                 hero_badge: "आपका द्वीप प्रवेश द्वार", hero_title: "अविस्मरणीय बाली <br>निजी यात्रा", hero_desc: "हमारे पूरी तरह से व्यक्तिगत दिन की यात्राओं के माध्यम से बाली के लुभावने परिदृश्य, प्राचीन मंदिरों और जीवंत संस्कृति में खुद को विसर्जित करें।",
-                
-                about_title: "स्टाइल में यात्रा करें, बाली का अनुभव लें",
-                about_para1: "बालिनेशिया जर्नीज़ बाली, इंडोनेशिया में स्थित एक प्रीमियम टूर और ट्रैवल सेवा है। जो व्यक्तिगत निजी पर्यटन और विशेष यात्रा अनुभव प्रदान करती है।",
-                about_para2: "पेशेवर स्थानीय ड्राइवरों और अनुकूलित यात्रा कार्यक्रमों के साथ, हम देवताओं के द्वीप में आराम, प्रामाणिकता और अविस्मरणीय यात्राएं प्रदान करते हैं। 🌴 निजी और कस्टम पर्यटन 📍 बाली, इंडोनेशिया ✨",
-
+                about_title: "बाली में आपका विश्वसनीय यात्रा भागीदार",
+                about_para1: "बालिनेशिया जर्नीज़ बाली में स्थित एक प्रीमियम टूर और ट्रैवल सेवा है। विशेष और विश्वसनीय सेवाओं के साथ बाली और इंडोनेशिया के सर्वश्रेष्ठ गंतव्यों की सुंदरता का अन्वेषण करें।",
+                about_para2: "हम यहाँ एक आरामदायक, सुरक्षित और अविस्मरणीय यात्रा अनुभव प्रदान करने के लिए हैं। परेशानी मुक्त यात्रा का आनंद लें, हम हर चीज का ध्यान रखते हैं! 🌴 निजी और कस्टम पर्यटन 📍 बाली, इंडोनेशिया ✨",
+                srv_badge: "हमारी सेवाएं", srv_title: "हम क्या प्रदान करते हैं",
+                srv_1: "बाली निजी टूर", srv_2: "हवाई अड्डा पिक-अप और ड्रॉप-ऑफ़", srv_3: "सर्वश्रेष्ठ होटल और विला बुकिंग", srv_4: "नुसा पेनिडा और गिली फास्टबोट टिकट", srv_5: "बाली पर्यटक आकर्षण टिकट", srv_6: "बाली से इजेन, ब्रोमो और लोम्बोक टूर",
                 why_title: "हमें क्या <span class='text-amber-600 italic'>सही विकल्प</span> बनाता है",
                 why_1_title: "विश्वसनीय स्थानीय गाइड", why_1_desc: "अनुभवी, अंग्रेजी बोलने वाले स्थानीय विशेषज्ञों के साथ बाली का अन्वेषण करें।",
                 why_2_title: "निजी और लचीला", why_2_desc: "निजी दिन यात्राओं और पैकेजों के साथ अपने यात्रा कार्यक्रम को अनुकूलित करें।",
                 why_3_title: "आरामदायक परिवहन", why_3_desc: "पेशेवर ड्राइवरों के साथ वातानुकूलित वाहनों में यात्रा करें।",
                 why_4_title: "परेशानी मुक्त बुकिंग", why_4_desc: "सभी पर्यटन के लिए पारदर्शी कीमतों के साथ आसान ऑनलाइन बुकिंग।",
-
-                tag_south: "दक्षिण बाली", tag_east: "पूर्व बाली", tag_highlands: "पहाड़ी क्षेत्र", tag_west: "पश्चिम बाली", tag_north: "उत्तर बाली", tag_experience: "अनुभव", tag_central: "मध्य बाली", tag_culture: "संस्कृति", tag_heritage: "विरासत",
-                
+                pkg_header: "प्रतिष्ठित बाली अनुभव", tag_south: "दक्षिण बाली", tag_east: "पूर्व बाली", tag_highlands: "पहाड़ी क्षेत्र", tag_west: "पश्चिम बाली", tag_north: "उत्तर बाली", tag_experience: "अनुभव", tag_central: "मध्य बाली", tag_culture: "संस्कृति", tag_heritage: "विरासत",
                 pkg_gwk_title: "गरुड़ विष्णुकंचन", pkg_gwk_desc: "पौराणिक गरुड़ पर सवार भगवान विष्णु की स्मारकीय मूर्ति पर अचंभित हों।",
                 pkg_lempuyangan_title: "स्वर्ग का द्वार", pkg_lempuyangan_desc: "शानदार माउंट आगुंग की पृष्ठभूमि के साथ प्रसिद्ध फाटकों के बीच खड़े हों।",
                 pkg_kintamani_title: "बतुर ज्वालामुखी दृश्य", pkg_kintamani_desc: "झील बतुर और सक्रिय ज्वालामुखी के लुभावने मनोरम दृश्यों का आनंद लें।",
@@ -525,28 +878,35 @@
                 pkg_ubud_title: "उबुद पैलेस", pkg_ubud_desc: "उबुद के केंद्र में ऐतिहासिक शाही महल की खोज करें, जो अपनी पारंपरिक बालिनी वास्तुकला के लिए प्रसिद्ध है।",
                 pkg_ulundanu_title: "उलुन दानू मंदिर", pkg_ulundanu_desc: "बेराटन झील पर स्थित एक सुंदर जल मंदिर, जो धुंध भरे पहाड़ों और शांत पानी से घिरा हुआ है।",
                 pkg_uluwatu_title: "उलुवातु मंदिर", pkg_uluwatu_desc: "हिंद महासागर की ओर देखने वाली एक नाटकीय चट्टान के किनारे पर स्थित एक प्राचीन समुद्री मंदिर।",
-                
+                exc_badge: "प्रीमियम स्टे", exc_title: "एक्सक्लूसिव और हनीमून पैकेज",
+                tag_romantic: "रोमांटिक", tag_multiday: "मल्टी-डे",
+                pkg_honey_title: "रोमांटिक हनीमून", pkg_honey_desc: "हमारे रोमांटिक गेटअवे पैकेज के साथ अपने प्यार का जश्न मनाएं। निजी विला, रात का खाना और स्पा शामिल हैं।",
+                pkg_4days_title: "4 दिन 3 रात का टूर", pkg_4days_desc: "परम बाली अनुभव। 4 दिनों में दक्षिण समुद्र तटों से लेकर मध्य हाइलैंड्स तक द्वीप के सर्वश्रेष्ठ का अन्वेषण करें।",
+                btn_detail: "विवरण देखें", rent_badge: "परिवहन और मज़ा", rent_title: "कार रेंटल और वॉटरस्पोर्ट",
+                rent_car_title: "बाली कार रेंटल", rent_car_desc: "सेल्फ-ड्राइव या पेशेवर अंग्रेजी बोलने वाले ड्राइवर के साथ उपलब्ध है। आपकी सुविधा के लिए लचीली दैनिक दरें।",
+                rent_water_title: "तंजुंग बेनोआ वॉटरस्पोर्ट", rent_water_desc: "तंजुंग बेनोआ समुद्र तट पर पैरासेलिंग, जेट स्की, बनाना बोट और स्नॉर्कलिंग सहित एड्रेनालाईन-पंपिंग गतिविधियां।",
+                btn_pricelist: "मूल्य सूची जांचें",
+                faq_title: "अधिकतर <span class='text-amber-600 italic'>पूछे जाने वाले प्रश्न</span>",
                 faq_q1: "आप किस प्रकार के पर्यटन की पेशकश करते हैं?", faq_a1: "हम निजी दिन पर्यटन, कॉम्बो पैकेज, हवाई अड्डा हस्तांतरण और अनुकूलित यात्रा कार्यक्रम में विशेषज्ञ हैं।",
                 faq_q2: "क्या मैं अपने दौरे को अनुकूलित कर सकता हूँ?", faq_a2: "हाँ! हमारे सभी पर्यटन लचीले हैं। आप गंतव्यों को चुनने और शेड्यूल को संशोधित करने के लिए स्वतंत्र हैं।",
                 faq_q3: "क्या आपके पर्यटन परिवारों के लिए उपयुक्त हैं?", faq_a3: "हाँ, हम अनुरोध पर बेबी कार सीट प्रदान कर सकते हैं और यात्रा कार्यक्रम को आरामदायक होने के लिए समायोजित कर सकते हैं।",
-                faq_q4: "क्या भोजन शामिल है?", faq_a4: "आम तौर पर भोजन शामिल नहीं होता है, जिससे आपको अपने पसंदीदा भोजन स्थानों को चुनने की स्वतंत्रता मिलती है।"
+                faq_q4: "क्या भोजन शामिल है?", faq_a4: "आम तौर पर भोजन शामिल नहीं होता है, जिससे आपको अपने पसंदीदा भोजन स्थानों को चुनने की स्वतंत्रता मिलती है।",
+                ftr_address: "बाली, इंडोनेशिया में स्थित।<br>प्रीमियम टूर एंड ट्रैवल सेवा।", ftr_pages: "हमारे पेज", ftr_special: "विशेष टूर", ftr_day: "डे टूर", ftr_combo: "गतिविधि कॉम्बो पैकेज", ftr_honeymoon: "हनीमून पैकेज", ftr_tour: "टूर पैकेज", ftr_airport: "हवाई अड्डा स्थानांतरण सेवा"
             },
             ru: {
-                nav_home: "Главная", nav_about: "О нас", nav_packages: "Пакеты", btn_book: "ЗАБРОНИРОВАТЬ",
+                nav_home: "Главная", nav_about: "О нас", nav_services: "Услуги", nav_packages: "Пакеты", btn_book: "ЗАБРОНИРОВАТЬ", select_lang: "Выберите язык",
                 hero_badge: "Ваши врата на остров", hero_title: "Незабываемый Бали <br>Частные туры", hero_desc: "Погрузитесь в захватывающие пейзажи Бали, древние храмы и яркую культуру с нашими полностью индивидуальными однодневными поездками.",
-                
-                about_title: "Путешествуйте со стилем, откройте для себя Бали",
-                about_para1: "Balinesia Journeys — это туристическое агентство премиум-класса на Бали, Индонезия. Мы предлагаем индивидуальные частные туры и эксклюзивные путешествия.",
-                about_para2: "С профессиональными местными водителями и индивидуальными маршрутами мы обеспечиваем комфорт, аутентичность и незабываемые путешествия по Острову Богов. 🌴 Частные туры 📍 Бали, Индонезия ✨",
-
+                about_title: "Ваш надежный партнер по путешествиям на Бали",
+                about_para1: "Balinesia Journeys — это туристическое агентство премиум-класса на Бали. Исследуйте красоту Бали и лучшие направления Индонезии с эксклюзивными и надежными услугами.",
+                about_para2: "Мы здесь, чтобы обеспечить комфортное, безопасное и незабываемое путешествие. Наслаждайтесь беззаботной поездкой, мы позаботимся обо всем! 🌴 Частные туры 📍 Бали, Индонезия ✨",
+                srv_badge: "Наши Услуги", srv_title: "Что Мы Предлагаем",
+                srv_1: "Частные туры на Бали", srv_2: "Трансфер из/в аэропорт", srv_3: "Бронирование лучших отелей и вилл", srv_4: "Билеты на скоростной катер до Нуса Пенида", srv_5: "Билеты на достопримечательности Бали", srv_6: "Туры из Бали на Иджен, Бромо и Ломбок",
                 why_title: "Почему <span class='text-amber-600 italic'>выбирают нас</span>",
                 why_1_title: "Надежные гиды", why_1_desc: "Исследуйте Бали с опытными местными экспертами.",
                 why_2_title: "Индивидуально и гибко", why_2_desc: "Настройте свой маршрут с помощью частных туров и пакетов.",
                 why_3_title: "Комфортный транспорт", why_3_desc: "Путешествуйте в автомобилях с кондиционером и профессиональными водителями.",
                 why_4_title: "Простое бронирование", why_4_desc: "Легкое онлайн-бронирование с прозрачными ценами.",
-
-                tag_south: "Южный Бали", tag_east: "Восточный Бали", tag_highlands: "Кинтамани", tag_west: "Западный Бали", tag_north: "Северный Бали", tag_experience: "Опыт", tag_central: "Центральный Бали", tag_culture: "Культура", tag_heritage: "Наследие",
-                
+                pkg_header: "Знаковые впечатления от Бали", tag_south: "Южный Бали", tag_east: "Восточный Бали", tag_highlands: "Кинтамани", tag_west: "Западный Бали", tag_north: "Северный Бали", tag_experience: "Опыт", tag_central: "Центральный Бали", tag_culture: "Культура", tag_heritage: "Наследие",
                 pkg_gwk_title: "Гаруда Вишну Кенчана", pkg_gwk_desc: "Полюбуйтесь монументальной статуей бога Вишну, верхом на мифической Гаруде.",
                 pkg_lempuyangan_title: "Врата Небес", pkg_lempuyangan_desc: "Встаньте между знаменитыми вратами на фоне величественной горы Агунг.",
                 pkg_kintamani_title: "Вулкан Батур", pkg_kintamani_desc: "Насладитесь захватывающими панорамными видами на озеро Батур и активный вулкан.",
@@ -562,16 +922,32 @@
                 pkg_ubud_title: "Дворец Убуда", pkg_ubud_desc: "Откройте для себя исторический королевский дворец в самом сердце Убуда, известный своей традиционной балийской архитектурой.",
                 pkg_ulundanu_title: "Храм Улун Дану", pkg_ulundanu_desc: "Красивый водный храм, расположенный на озере Бератан, в окружении туманных гор и спокойных вод.",
                 pkg_uluwatu_title: "Храм Улувату", pkg_uluwatu_desc: "Древний морской храм, расположенный на краю живописной скалы с видом на Индийский океан.",
-                
+                exc_badge: "Премиум Отдых", exc_title: "Эксклюзивные и Медовый месяц",
+                tag_romantic: "Романтический", tag_multiday: "Многодневный",
+                pkg_honey_title: "Романтический медовый месяц", pkg_honey_desc: "Отпразднуйте свою любовь с нашим романтическим пакетом. Включает частную виллу, ужин и спа.",
+                pkg_4days_title: "Тур 4 Дня 3 Ночи", pkg_4days_desc: "Идеальный Бали. Исследуйте лучшее на острове от южных пляжей до центральных гор за 4 дня.",
+                btn_detail: "Посмотреть детали", rent_badge: "Транспорт и Веселье", rent_title: "Прокат авто и Водный спорт",
+                rent_car_title: "Прокат авто на Бали", rent_car_desc: "Доступно для самостоятельного вождения или с водителем. Гибкие тарифы.",
+                rent_water_title: "Водный спорт Танджунг Беноа", rent_water_desc: "Захватывающие дух развлечения: парасейлинг, гидроциклы, лодка-банан и снорклинг.",
+                btn_pricelist: "Смотреть цены",
+                faq_title: "Часто задаваемые <span class='text-amber-600 italic'>вопросы</span>",
                 faq_q1: "Какие туры вы предлагаете?", faq_a1: "Мы специализируемся на частных турах, комбо-пакетах, трансферах из аэропорта и индивидуальных маршрутах.",
                 faq_q2: "Могу ли я изменить маршрут?", faq_a2: "Да, абсолютно! Все наши туры гибки. Вы можете изменять график и выбирать направления.",
                 faq_q3: "Подходят ли туры для семей?", faq_a3: "Да, мы можем предоставить детские автокресла и адаптировать маршрут для всех возрастов.",
-                faq_q4: "Включен ли обед?", faq_a4: "Обычно обед не включен, что дает вам свободу выбора предпочитаемых мест для еды."
+                faq_q4: "Включен ли обед?", faq_a4: "Обычно обед не включен, что дает вам свободу выбора предпочитаемых мест для еды.",
+                ftr_address: "Основано на Бали, Индонезия.<br>Туристические услуги премиум-класса.", ftr_pages: "Наши страницы", ftr_special: "Специальный тур", ftr_day: "Однодневный тур", ftr_combo: "Комбо-пакеты", ftr_honeymoon: "Свадебный пакет", ftr_tour: "Турпакеты", ftr_airport: "Трансфер из аэропорта"
             }
         };
 
         function changeLanguage(lang) {
             document.getElementById('current-lang').innerText = lang.toUpperCase();
+            
+            // Atur RTL (Kanan ke Kiri) khusus buat bahasa Arab
+            if(lang === 'ar') {
+                document.body.setAttribute('dir', 'rtl');
+            } else {
+                document.body.setAttribute('dir', 'ltr');
+            }
             
             if (!mobileMenu.classList.contains('hidden')) {
                 mobileMenu.classList.add('hidden');
